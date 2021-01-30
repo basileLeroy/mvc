@@ -22,7 +22,7 @@ class LoginController
     public function login($role,$email,$password)
     {
 
-        $sql = "SELECT * FROM $role WHERE email='$email'";
+        $sql = "SELECT * FROM $role WHERE email=?";
       
         $databaseUser = $this->databaseManager->database->prepare($sql);
         $databaseUser->execute();
