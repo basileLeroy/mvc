@@ -11,15 +11,11 @@ error_reporting(E_ALL);
 require_once 'config.php';
 require_once 'Modal/DatabaseManager.php';
 require_once 'Controller/LoginController.php';
-// require_once 'Controller/BaseController.php';
-// require_once 'Controller/StudentController.php';
-// require_once 'Controller/CoachController.php';
-// require_once 'View/student_profile.php';
-// require_once 'View/coach.php';
-// require_once 'View/public_homepage.php';
 
 
 
 $databaseManager = new DatabaseManager($config['host'], $config['user'], $config['password'], $config['databaseName']);
 
 
+// This example is about a Pokémon card collection
+// Update the naming if you'd like to work with another collection

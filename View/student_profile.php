@@ -1,6 +1,4 @@
-<?php
-
-require '../setup.php';
+<?php 
 
 
 

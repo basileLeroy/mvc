@@ -6,7 +6,7 @@ require './setup.php';
 if(!empty($_POST["login"])){
 
     $databaseManager->connect();
-    $user = new LoginController($databaseManager);
+$user = new LoginController($databaseManager);
 
     $role=$_POST["role"];
     $email=$_POST["email"];

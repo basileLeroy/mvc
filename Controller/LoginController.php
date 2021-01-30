@@ -1,5 +1,5 @@
 <?php
-require_once '../setup.php';
+require_once './setup.php';
 //$databaseManager->connect();
 
 class LoginController
@@ -32,9 +32,26 @@ class LoginController
         var_dump($databaseUser->fetch(PDO::FETCH_ASSOC));
         echo '</pre>';
 
-        switch ($role) {
-       
+        // foreach($databaseUser as $result){
+        //     if($result["password"]==$password){
+        //         echo "correct";
+        //         header("Location: ./View/student_profile.php");
 
+        //     }else{
+        //         echo "not correct";
+        //     };
+        // }
+
+        switch ($role) {
+            case "coaches":
+                if ($result['password'] == $password && $result['email'] == $email) {
+
+                    header("Location: ./View/coach_profile.php");
+                } else {
+
+                    echo "invalid login";
+                }
+                break;
             case "students":
                 if ($result['password'] == $password && $result['email'] == $email) {
 
@@ -44,31 +61,10 @@ class LoginController
                     echo "invalid login";
                 }
                 break;
-
-                case "coaches":
-                    if ($result['password'] == $password && $result['email'] == $email) {
-                        header("Location: ./View/coach_profile.php");
-                    } else {
-    
-                        echo "invalid login";
-                    }
-                    break;
-
-                default:
-                    echo "login error";
-                break;
         }
-    }
 
-    public function getName($id)
-    {
-        $sql = "SELECT name FROM $role WHERE id='$id'";
-      
-        $databaseUser = $this->databaseManager->database->prepare($sql);
-        $databaseUser->execute();
-
-        $result = $databaseUser->fetch(PDO::FETCH_ASSOC);
-        return $result;
+         //TODO: need to put error msg if password incorrect + role not match
+        
     }
 
 
