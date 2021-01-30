@@ -1,5 +1,5 @@
 <?php
-require_once './setup.php';
+require_once '../setup.php';
 //$databaseManager->connect();
 
 class LoginController
@@ -22,7 +22,7 @@ class LoginController
     public function login($role,$email,$password)
     {
 
-        $sql = "SELECT * FROM $role WHERE email=?";
+        $sql = "SELECT * FROM $role WHERE email='$email'";
       
         $databaseUser = $this->databaseManager->database->prepare($sql);
         $databaseUser->execute();
