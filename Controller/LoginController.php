@@ -22,24 +22,23 @@ class LoginController
     public function login($role,$email,$password)
     {
 
-
         $sql = "SELECT * FROM $role WHERE email=?";
       
-           $results = $this->databaseManager->database->prepare($sql);
+        $results = $this->databaseManager->database->prepare($sql);
                     
-           $results->execute([$email]);
+        $results->execute([$email]);
 
-          
-         foreach($results as $result){
-             if($result["password"]==$password){
-                 echo "correct";
-             }else{
-                 echo "not correct";
-             };
-         }
+        foreach($results as $result){
+            if($result["password"]==$password){
+                echo "correct";
+                header("Location: ./View/student_profile.php");
+
+            }else{
+                echo "not correct";
+            };
+        }
 
          //TODO: need to put error msg if password incorrect + role not match
-         
         
     }
 
