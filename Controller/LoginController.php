@@ -1,5 +1,5 @@
 <?php
-require_once './setup.php';
+//require './setup.php';
 //$databaseManager->connect();
 
 class LoginController
