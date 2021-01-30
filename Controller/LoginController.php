@@ -29,6 +29,7 @@ class LoginController
         $results->execute([$email]);
 
         foreach($results as $result){
+            
             if($result["password"]==$password){
                 echo "correct";
                 header("Location: ./View/student_profile.php");
