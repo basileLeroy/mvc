@@ -1,5 +1,5 @@
 <?php
-require_once './setup.php';
+
 
 class BaseController
 {
@@ -19,6 +19,18 @@ class BaseController
 
     //TODO: watch schedule
     //TODO: watch reminder
+
+    public function getName($role,$email)
+    {
+        $sql = "SELECT * FROM $role where email='$email'";
+
+        $databaseUser = $this->databaseManager->database->prepare($sql);
+        $databaseUser->execute();
+
+        $result = $databaseUser->fetch(PDO::FETCH_ASSOC);
+       
+        return $result;
+    }
 
 
 }

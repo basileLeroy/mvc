@@ -1,7 +1,18 @@
 <?php 
 
 require '../setup.php';
+echo"<h2>POST</h2><br>";
+var_dump($_POST);
+echo"<h2>SESSION</h2><br>";
+var_dump($_SESSION);
 
+$databaseManager->connect();
+$user = new BaseController($databaseManager);
+
+if(!empty($_SESSION["email"])){
+    $email=$_SESSION["email"];
+    $coach = $user->getName("coaches", $email);
+}
 
 ?>
 
@@ -14,6 +25,9 @@ require '../setup.php';
 </head>
 <body>
 <h1>Coaches's dashboard</h1>
+<p>Welcome, 
+<?php echo $coach["first_name"];?>
+</p>
     
 </body>
 </html>
