@@ -1,5 +1,17 @@
 <?php 
 
+include '../setup.php';
+
+
+
+
+$databaseManager->connect();
+$user = new LoginController($databaseManager);
+
+
+
+var_dump($_POST);
+
 
 
 ?>
