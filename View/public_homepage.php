@@ -1,4 +1,24 @@
-<?php ?>
+<?php 
+
+require './setup.php';
+
+
+if(!empty($_POST["login"])){
+
+    $databaseManager->connect();
+$user = new LoginController($databaseManager);
+
+    $role=$_POST["role"];
+    $email=$_POST["email"];
+    $password=$_POST["password"];
+    $displays = $user->login($role,$email, $password);
+
+}
+
+var_dump($_POST);
+
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,14 +34,24 @@
 
     <form action="" method="POST">
         <h3>Log in to continue:</h3>
+        <select name="role" id="">
+            <option value="coaches">coach</option>
+            <option value="students">student</option>
+
+        </select><br>
         <input type="email" name="email" placeholder="your email adress">
         <br><br>
         <input type="password" name="password" placeholder="Your password">
         <br><br><br>
         <hr>
 
-        <button type="submit" name="login" id="login">Log in</button>
+        <button type="submit" name="login" value="login" id="login">Log in</button>
     </form>
+
+<?php// foreach ($displays as $display) {
+    //echo $display["password"];
+//}
+?>
 
 </body>
 </html>
