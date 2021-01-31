@@ -1,8 +1,7 @@
 
 <?php 
-
-require 'includes/coach_header.php';
 //This is the page to create challenges - COACH USE ONLY
+require 'includes/coach_header.php';
 
 ?>
 <div>
