@@ -31,7 +31,7 @@ class LoginController
                     header("Location: ./View/coach_profile.php");
                 } else {
 
-                    header("Location: ;/View/public_homepage.php");
+                    header("Location: ./View/public_homepage.php");
                     $this->errorMessage();
 
                 }

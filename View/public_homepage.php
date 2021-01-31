@@ -35,6 +35,7 @@ var_dump($_SESSION);
 <body>
     
     <header>
+    
     </header>
 
     <form action="" method="POST">
