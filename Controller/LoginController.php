@@ -1,6 +1,5 @@
 <?php
-//require './setup.php';
-//$databaseManager->connect();
+
 
 class LoginController
 {
@@ -31,16 +30,6 @@ class LoginController
         echo '<pre>';
         var_dump($databaseUser->fetch(PDO::FETCH_ASSOC));
         echo '</pre>';
-
-        // foreach($databaseUser as $result){
-        //     if($result["password"]==$password){
-        //         echo "correct";
-        //         header("Location: ./View/student_profile.php");
-
-        //     }else{
-        //         echo "not correct";
-        //     };
-        // }
 
         switch ($role) {
             case "coaches":

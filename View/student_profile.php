@@ -41,6 +41,7 @@ $watches = $user->getWatchSchedule();
 
 
     <!-- watch schedule -->
+    <!-- TODO: check jquery for calendar function -->
     <table>
         
             <tr>
