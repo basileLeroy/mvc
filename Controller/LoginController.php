@@ -5,70 +5,57 @@
 class LoginController
 {
     private $databaseManager;
-   
+    public $loginError;
+
     // This class needs a database connection to function
     public function __construct(DatabaseManager $databaseManager)
     {
         $this->databaseManager = $databaseManager;
+        
     }
 
-    
 
-    //if ($_POST['login'] == )
-    //TODO: start database (if login submit)
-    //TODO: select role of profile 
-
-
-    public function login($role,$email,$password)
+    public function login($email,$password)
     {
 
-        $sql = "SELECT * FROM $role WHERE email='$email'";
-      
+        $sql = "SELECT * FROM `user` WHERE email='$email'";
+
         $databaseUser = $this->databaseManager->database->prepare($sql);
         $databaseUser->execute();
 
         $result = $databaseUser->fetch(PDO::FETCH_ASSOC);
-        echo '<pre>';
-        var_dump($databaseUser->fetch(PDO::FETCH_ASSOC));
-        echo '</pre>';
 
-        // foreach($databaseUser as $result){
-        //     if($result["password"]==$password){
-        //         echo "correct";
-        //         header("Location: ./View/student_profile.php");
-
-        //     }else{
-        //         echo "not correct";
-        //     };
-        // }
-
-        switch ($role) {
-            case "coaches":
+        switch ($result['role_id']) {
+            case "1":
                 if ($result['password'] == $password && $result['email'] == $email) {
 
                     header("Location: ./View/coach_profile.php");
                 } else {
 
-                    echo "invalid login";
+                    header("Location: ;/View/public_homepage.php");
+                    $this->errorMessage();
+
                 }
                 break;
-            case "students":
+            case "2":
                 if ($result['password'] == $password && $result['email'] == $email) {
 
                     header("Location: ./View/student_profile.php");
                 } else {
 
-                    echo "invalid login";
+                    header("Location: ;/View/public_homepage.php");
+                    $this->errorMessage();
+
                 }
                 break;
         }
-
-         //TODO: need to put error msg if password incorrect + role not match
         
     }
 
-
-   
-
-
+    public function errorMessage()
+    {
+        $this->loginError = '<h3 style="color: red; font-size: 16px;">INVALID LOGIN!</h3>';
+        $loginError = $this->loginError;
+        return $loginError;
+    }
 }
