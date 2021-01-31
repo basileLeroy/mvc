@@ -32,5 +32,38 @@ class BaseController
         return $result;
     }
 
+    public function getWatchSchedule()
+    {
+        $sql = "SELECT * FROM students";
+
+        $databaseUser = $this->databaseManager->database->prepare($sql);
+       $databaseUser->execute();
+        
+        $result = $databaseUser->fetchAll();
+    //     echo "<pre>";
+    //    var_dump($result);
+    //    echo "</pre>";
+
+       return $result;
+        
+    }
+
+        // echo '<h2>RESULT: </h2><pre>';
+        // var_dump($databaseUser->fetch(PDO::FETCH_ASSOC));
+        // echo '</pre>';
+
+     
+
+        // foreach($databaseUser as $result){
+        //     if($result["password"]==$password){
+        //         echo "correct";
+        //         header("Location: ./View/student_profile.php");
+
+        //     }else{
+        //         echo "not correct";
+        //     };
+        // }
+    
+
 
 }
