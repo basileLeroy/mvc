@@ -21,7 +21,7 @@ require 'includes/coach_header.php';
                 
 
                 <div class="welcome-msg">
-                    <h3>Welcome, </h3>
+                    <h3>Welcome, <?= $_GET["user"] ?> </h3>
 
                     <?php //TODO: to display welcome msg?>
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa, dolorem!
