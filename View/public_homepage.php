@@ -6,16 +6,23 @@ require './setup.php';
 if(!empty($_POST["login"])){
 
     $databaseManager->connect();
-$user = new LoginController($databaseManager);
+    $user = new LoginController($databaseManager);
 
     $role=$_POST["role"];
     $email=$_POST["email"];
     $password=$_POST["password"];
-    $displays = $user->login($role,$email, $password);
+    
+     $_SESSION["email"] = $_POST["email"];
+    
+     $user->login($role,$email, $password);
 
 }
 
+echo "<h2>POST</h2>";
 var_dump($_POST);
+echo "<h2>SESSION</h2>";
+var_dump($_SESSION);
+
 
 
 ?>

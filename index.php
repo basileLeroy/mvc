@@ -1,6 +1,9 @@
 <?php
 
+
 require 'setup.php';
+
+
 
 // create variable and call funtion inside it
 // if (isset($_POST['login'])) {

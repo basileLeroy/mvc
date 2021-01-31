@@ -7,10 +7,13 @@ ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
 
+session_start();
+
 // Load you classes
 require_once 'config.php';
 require_once 'Modal/DatabaseManager.php';
 require_once 'Controller/LoginController.php';
+require_once 'Controller/BaseController.php';
 
 
 
