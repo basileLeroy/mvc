@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jan 31, 2021 at 12:24 PM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.11
+-- Host: localhost
+-- Generation Time: Jan 31, 2021 at 02:08 PM
+-- Server version: 5.7.24
+-- PHP Version: 7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,7 +31,7 @@ CREATE TABLE `administrator` (
   `id` int(11) NOT NULL,
   `first_name` int(11) NOT NULL,
   `last_name` int(11) NOT NULL,
-  `create_time` timestamp NOT NULL DEFAULT current_timestamp(),
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `user_id` int(11) NOT NULL,
   `email` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -62,8 +62,8 @@ CREATE TABLE `challenge` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
-  `date_open` timestamp NOT NULL DEFAULT current_timestamp(),
-  `date_due` timestamp NOT NULL DEFAULT current_timestamp(),
+  `date_open` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `date_due` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `url` mediumtext NOT NULL,
   `type` varchar(30) NOT NULL,
   `class_id` int(11) NOT NULL
@@ -129,7 +129,7 @@ CREATE TABLE `coachers` (
   `last_name` varchar(255) NOT NULL,
   `dni` varchar(255) NOT NULL,
   `gender` varchar(30) NOT NULL,
-  `create_time` timestamp NOT NULL DEFAULT current_timestamp(),
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -145,7 +145,7 @@ CREATE TABLE `repository` (
   `challenge_id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `url` mediumtext NOT NULL,
-  `create_time` timestamp NOT NULL DEFAULT current_timestamp()
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -160,6 +160,15 @@ CREATE TABLE `role` (
   `description` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `role`
+--
+
+INSERT INTO `role` (`id`, `name`, `description`) VALUES
+(1, 'coach', 'Becode coach, the person that can really change your life'),
+(2, 'student', 'curious minded beeings...'),
+(3, 'admin', 'da boss');
+
 -- --------------------------------------------------------
 
 --
@@ -172,7 +181,7 @@ CREATE TABLE `students` (
   `last_name` varchar(255) NOT NULL,
   `dni` varchar(255) NOT NULL,
   `gender` varchar(255) NOT NULL,
-  `create_time` timestamp NOT NULL DEFAULT current_timestamp(),
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `user_id` int(11) NOT NULL,
   `watch_order` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -198,8 +207,8 @@ CREATE TABLE `training` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
-  `date_open` timestamp NOT NULL DEFAULT current_timestamp(),
-  `date_due` timestamp NOT NULL DEFAULT current_timestamp(),
+  `date_open` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `date_due` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `campus_id` int(11) NOT NULL,
   `status` varchar(25) NOT NULL DEFAULT 'active'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -214,11 +223,26 @@ CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `username` varchar(25) NOT NULL,
   `password` varchar(25) NOT NULL,
+  `email` varchar(255) NOT NULL,
   `role_id` int(11) NOT NULL,
-  `create_time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `status` varchar(25) NOT NULL DEFAULT 'active',
-  `last_login` timestamp NOT NULL DEFAULT current_timestamp()
+  `last_login` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `username`, `password`, `email`, `role_id`, `create_time`, `status`, `last_login`) VALUES
+(1, 'bert', 'bert', 'bert@becode.org', 1, '2021-01-31 13:06:54', 'active', '2021-01-31 12:56:25'),
+(2, 'tim', 'tim', 'tim@becode.org', 1, '2021-01-31 13:07:04', 'active', '2021-01-31 12:56:25'),
+(3, 'Giomayra', 'student', 'giomayra@becode.org', 2, '2021-01-31 13:07:14', 'active', '2021-01-31 12:56:25'),
+(4, 'Wing', 'student', 'wing@becode.org', 2, '2021-01-31 13:07:25', 'active', '2021-01-31 12:56:25'),
+(5, 'Basile', 'student', 'basile@becode.org', 2, '2021-01-31 13:07:40', 'active', '2021-01-31 12:56:25'),
+(6, 'stud1', 'student', 'stud1@becode.org', 2, '2021-01-31 13:07:52', 'active', '2021-01-31 12:56:25'),
+(7, 'stud2', 'student', 'stud2@becode.org', 2, '2021-01-31 13:07:56', 'active', '2021-01-31 12:56:25'),
+(8, 'stud3', 'student', 'stud3@becode.org', 2, '2021-01-31 13:08:05', 'active', '2021-01-31 12:56:25');
 
 -- --------------------------------------------------------
 
@@ -230,9 +254,9 @@ CREATE TABLE `watch` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `round` int(11) NOT NULL,
-  `url` mediumtext DEFAULT NULL,
+  `url` mediumtext,
   `student_id` int(11) NOT NULL,
-  `date` timestamp NOT NULL DEFAULT current_timestamp()
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -341,7 +365,8 @@ ALTER TABLE `user`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `username` (`username`),
   ADD KEY `role_id` (`role_id`),
-  ADD KEY `status` (`status`);
+  ADD KEY `status` (`status`),
+  ADD KEY `user_email` (`email`);
 
 --
 -- Indexes for table `watch`
@@ -388,7 +413,7 @@ ALTER TABLE `repository`
 -- AUTO_INCREMENT for table `role`
 --
 ALTER TABLE `role`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `team`
@@ -406,7 +431,7 @@ ALTER TABLE `training`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `watch`
@@ -422,7 +447,8 @@ ALTER TABLE `watch`
 -- Constraints for table `administrator`
 --
 ALTER TABLE `administrator`
-  ADD CONSTRAINT `administrator_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `administrator_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `administrator_ibfk_2` FOREIGN KEY (`email`) REFERENCES `user` (`email`);
 
 --
 -- Constraints for table `challenge`
