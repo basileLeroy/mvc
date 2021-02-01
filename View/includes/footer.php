@@ -1,2 +1,9 @@
-<?php ?>
-<div class="circle"></div>
+<footer>
+    <div class="circle"></div>
+</footer>
+
+
+
+</body>
+
+</html>

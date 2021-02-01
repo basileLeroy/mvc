@@ -1,14 +1,18 @@
 
 <?php 
 //This is the page to create challenges - COACH USE ONLY
-require 'includes/coach_header.php';
 
+require 'includes/header.php';
+require 'includes/nav_coach.php';
 ?>
-<div>
-    <h3>Create Challenge</h3>
 
 
+<div class="container">
+    <!-- TODO: please put the content inside the container div -->
     
+    <h3>Create a new challenge</h3>
+
+
 </div>
 
 
