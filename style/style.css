@@ -28,6 +28,10 @@ a {
   color: #c4c3c4;
 }
 
+.logout a i:hover {
+  color: #c6dddd;
+}
+
 .vertical-nav {
   height: 90vh;
   top: 10vh;
@@ -184,5 +188,9 @@ div#calendar {
 
 .fc-day-header {
   background-color: #c6dddd;
+}
+
+.watch-calendar {
+  padding: 1.5rem;
 }
 /*# sourceMappingURL=style.css.map */

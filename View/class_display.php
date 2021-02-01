@@ -7,7 +7,7 @@ require 'includes/nav_coach.php';
 ?>
 
 
-<div class="container">
+<div class="container-profile">
     <!-- TODO: please put the content inside the container div -->
     <h3>Student List</h3>
 

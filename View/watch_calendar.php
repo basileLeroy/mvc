@@ -1,7 +1,4 @@
-<!-- //This is to display the watch calendar -->
-
-
-
+<!-- //This is for  displaying the watch calendar -->
 <?php 
 
 require 'includes/header_watch.php';
@@ -9,9 +6,11 @@ require 'includes/header_watch.php';
 //TODO: need to set $variable to choose between student/coach_header.php
 require 'includes/nav_coach.php';
 ?>
+<div class="container-profile">
 
-<div class="container">
+<div class="container watch-calendar">
     <div id="calendar"></div>
+</div>
 </div>
 
 

@@ -31,6 +31,9 @@ a {
   i {
     color: $grey;
   }
+  a i:hover{
+    color: $tiffany;
+  }
 }
 
 .vertical-nav {
@@ -109,7 +112,6 @@ a {
   border-radius: 15px;
   margin: 1rem;
   padding: .5rem;
-
   .fc-day-header{
     font-size: .6rem;
   }
@@ -140,10 +142,7 @@ a {
 
 // calendar css
 div#calendar{
-
   max-height: 80vh;
- 
-
 }
 .fc-center {
   color: grey;
@@ -157,3 +156,6 @@ div#calendar{
   background-color: $tiffany;
 }
 
+.watch-calendar{
+  padding: 1.5rem;
+}
