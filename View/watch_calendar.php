@@ -1,13 +1,4 @@
 <!-- //This is to display the watch calendar -->
-<?php 
-
-require '../setup.php';
-
-
-
-
-?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -28,9 +19,7 @@ require '../setup.php';
     <title>Becode2U</title>
 
     <style>
-    .fc-center {
-        color: grey;
-    }
+    
     </style>
 </head>
 
@@ -55,7 +44,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
     var calendar = $('#calendar').fullCalendar({
 
-        
         header: {
             right: 'prev,today,next',
             center: 'title',
@@ -65,9 +53,13 @@ window.addEventListener('DOMContentLoaded', () => {
         editable: false,
         // height: 400 ,
         contentHeight: 500,
+        selectable:true,
+        selectHelper:true,
+       
         //cannot use PHP tag inside javascript codes, can only use a file return the values
         events: '../Controller/WatchController.php',
-        eventColor: 'pink',
+        displayEventTime: false,
+        eventColor: '#d889a7',
         eventTextColor: 'white',
     });
 });

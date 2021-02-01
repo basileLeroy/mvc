@@ -17,7 +17,7 @@ class BaseController
 
     //TODO: update database as administrator
 
-    //TODO: watch schedule
+   
     //TODO: watch reminder
 
     public function getName($role,$email)
@@ -34,33 +34,24 @@ class BaseController
 
     public function getWatchSchedule()
     {
-        $connect = new PDO('mysql:host=localhost;dbname=calendar', 'root', '');
+        //TODO: change the $sql for the left join with students table instead of user table
 
-        //$data = array();
+        $sql = "SELECT * FROM watch LEFT JOIN user ON watch.user_id = user.id WHERE user.role_id=2";
 
-        $query = "SELECT * FROM events ORDER BY id";
+        $databaseUser = $this->databaseManager->database->prepare($sql);
+        $databaseUser->execute();
+        $result = $databaseUser->fetchAll();
 
-        $statement = $connect->prepare($query);
-
-        $statement->execute();
-
-        $result = $statement->fetchAll();
 
         foreach($result as $row)
         {
-        $data[] = array(
-        'id'   => $row["id"],
-        'title'   => $row["title"],
-        'start'   => $row["start_event"],
-        'end'   => $row["end_event"]
-        );
+            $data[] = array(
+            'id'   => $row["id"],
+            'title'   => $row["username"],
+            'start'   => $row["date"],
+            );
         }
 
-        echo json_encode($data);
-        
+        echo json_encode($data); 
     }
-
-       
-
-
 }

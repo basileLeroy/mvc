@@ -6,7 +6,7 @@
 
 $config = [
     'host' => 'localhost',
-    'user' => 'root',
-    'password' => 'root',
+    'user' => 'test',
+    'password' => '',
     'databaseName' => 'becode2u',
 ];

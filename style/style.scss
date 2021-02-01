@@ -127,3 +127,20 @@ a {
   border-radius: 50%;
   z-index: -1;
 }
+
+#calendar{
+
+  padding: 1.5rem;
+
+}
+.fc-center {
+  color: grey;
+}
+.fc-month-button, .fc-agendaWeek-button, .fc-today-button, .fc-button{
+  text-transform: capitalize;
+  background-color: none;
+  border: none;
+}
+.fc-day-header{
+  background-color: $tiffany;
+}
