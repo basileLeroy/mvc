@@ -58,7 +58,7 @@ a {
   }
 }
 
-.container {
+.container-profile {
   position: absolute;
   left: 13vw;
   margin: auto;
@@ -75,18 +75,19 @@ a {
   backdrop-filter: blur(1.5rem);
   color: $dark-grey;
 }
-.grid {
+.grid-profile {
   display: grid;
   height: 80vh;
   grid-template-columns: 40% 35% 25%;
   grid-template-rows: 30% 40% 30%;
-  div {
-    margin: 1rem;
-    padding: 1rem;
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-  }
+  
+}
+.welcome-msg, .exercise-list, .repo, .student-list {
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
 }
 .welcome-msg {
   background-color: $yellow;
@@ -105,6 +106,14 @@ a {
   grid-row: 1/4;
   grid-column: 3/4;
   background-color: $grey;
+  border-radius: 15px;
+  margin: 1rem;
+  padding: .5rem;
+
+  .fc-day-header{
+    font-size: .6rem;
+  }
+  
 }
 .repo {
   grid-column: 2/3;
@@ -128,9 +137,12 @@ a {
   z-index: -1;
 }
 
-#calendar{
 
-  padding: 1.5rem;
+// calendar css
+div#calendar{
+
+  max-height: 80vh;
+ 
 
 }
 .fc-center {
@@ -144,3 +156,4 @@ a {
 .fc-day-header{
   background-color: $tiffany;
 }
+

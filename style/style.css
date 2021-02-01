@@ -62,7 +62,7 @@ a {
   color: #c6dddd;
 }
 
-.container {
+.container-profile {
   position: absolute;
   left: 13vw;
   margin: auto;
@@ -78,7 +78,7 @@ a {
   color: #878c91;
 }
 
-.grid {
+.grid-profile {
   display: -ms-grid;
   display: grid;
   height: 80vh;
@@ -88,7 +88,7 @@ a {
       grid-template-rows: 30% 40% 30%;
 }
 
-.grid div {
+.welcome-msg, .exercise-list, .repo, .student-list {
   margin: 1rem;
   padding: 1rem;
   border-radius: 15px;
@@ -129,6 +129,13 @@ a {
   -ms-grid-column-span: 1;
   grid-column: 3/4;
   background-color: #c4c3c4;
+  border-radius: 15px;
+  margin: 1rem;
+  padding: .5rem;
+}
+
+.watch .fc-day-header {
+  font-size: .6rem;
 }
 
 .repo {
@@ -161,8 +168,8 @@ a {
   z-index: -1;
 }
 
-#calendar {
-  padding: 1.5rem;
+div#calendar {
+  max-height: 80vh;
 }
 
 .fc-center {
