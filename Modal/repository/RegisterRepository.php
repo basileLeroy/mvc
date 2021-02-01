@@ -96,7 +96,7 @@ function createUser($databaseManager, $userName, $email, $password, $userRole)
     echo "</pre>";
 
     $test = $sqlStatement->execute();
-    
+
     echo "<pre>";
     var_dump($test);
     echo "</pre>";
@@ -104,4 +104,10 @@ function createUser($databaseManager, $userName, $email, $password, $userRole)
     header("Location: student_profile.php?user={$userName}&error=none");
     $sqlStatement = null;
     exit();
+}
+
+function errorMessage()
+{
+    $loginError = '<h3 style="color: red; font-size: 16px;">INVALID SUBMIT!</h3>';
+    return $loginError;
 }

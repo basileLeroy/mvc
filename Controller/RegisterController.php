@@ -19,26 +19,31 @@ class RegisterController
     {
         if (emptyRegisterInput($userName, $email, $password, $repeatPassword) !== false) {
             header("location: ../View/register_profile.php?error=Empty-fields");
+            errorMessage();
             exit();
         }
 
         if (invalidyUsername($userName) !== false) {
             header("location: ../View/register_profile.php?error=Invalid-username");
+            errorMessage();
             exit();
         }
 
         if (invalidEmail($email) !== false) {
             header("location: ../View/register_profile.php?error=Invalid-email");
+            errorMessage();
             exit();
         }
 
         if (passwordMatch($password, $repeatPassword) !== false) {
             header("location: ../View/register_profile.php?error=No-matching-pwd");
+            errorMessage();
             exit();
         }
 
         if (userExists($this->databaseManager, $userName, $email) !== false) {
             header("location: ../View/register_profile.php?error=Uid-already-exists");
+            errorMessage();
             exit();
         }
 

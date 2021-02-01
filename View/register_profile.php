@@ -61,7 +61,7 @@ var_dump($_SESSION);
 
         <button type="submit" name="register" value="register" id="register">Register now!</button>
     </form>
-    <?= $user->errorMessage();?>
+    <?= $newUser->errorMessage();?>
 
 </body>
 </html>
