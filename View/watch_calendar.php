@@ -1,13 +1,8 @@
 <!-- //This is to display the watch calendar -->
 <?php 
 
-require './setup.php';
+require '../setup.php';
 
-
-    $databaseManager->connect();
-    $user = new BaseController($databaseManager);
-
-    $user->getWatchSchedule();
 
 
 
@@ -60,18 +55,18 @@ window.addEventListener('DOMContentLoaded', () => {
 
     var calendar = $('#calendar').fullCalendar({
 
-        editable: false,
+        
         header: {
             right: 'prev,today,next',
             center: 'title',
             left: 'month,agendaWeek'
         },
         fixedWeekCount: false,
-
+        editable: false,
         // height: 400 ,
         contentHeight: 500,
         //cannot use PHP tag inside javascript codes, can only use a file return the values
-        events: 'load.php',
+        events: '../Controller/WatchController.php',
         eventColor: 'pink',
         eventTextColor: 'white',
     });

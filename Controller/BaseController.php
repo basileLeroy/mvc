@@ -34,36 +34,33 @@ class BaseController
 
     public function getWatchSchedule()
     {
-        $sql = "SELECT * FROM students";
+        $connect = new PDO('mysql:host=localhost;dbname=calendar', 'root', '');
 
-        $databaseUser = $this->databaseManager->database->prepare($sql);
-       $databaseUser->execute();
-        
-        $result = $databaseUser->fetchAll();
-    //     echo "<pre>";
-    //    var_dump($result);
-    //    echo "</pre>";
+        //$data = array();
 
-       return $result;
+        $query = "SELECT * FROM events ORDER BY id";
+
+        $statement = $connect->prepare($query);
+
+        $statement->execute();
+
+        $result = $statement->fetchAll();
+
+        foreach($result as $row)
+        {
+        $data[] = array(
+        'id'   => $row["id"],
+        'title'   => $row["title"],
+        'start'   => $row["start_event"],
+        'end'   => $row["end_event"]
+        );
+        }
+
+        echo json_encode($data);
         
     }
 
-        // echo '<h2>RESULT: </h2><pre>';
-        // var_dump($databaseUser->fetch(PDO::FETCH_ASSOC));
-        // echo '</pre>';
-
-     
-
-        // foreach($databaseUser as $result){
-        //     if($result["password"]==$password){
-        //         echo "correct";
-        //         header("Location: ./View/student_profile.php");
-
-        //     }else{
-        //         echo "not correct";
-        //     };
-        // }
-    
+       
 
 
 }
