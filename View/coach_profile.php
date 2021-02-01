@@ -1,27 +1,27 @@
-<?php 
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+        <link rel="stylesheet" href="../style/style.css"/>
+        <link rel="icon" type="image/png" href="../style/b.png"/>
+        <title>Becode2U</title>
+    </head>
 
-require '../setup.php';
-echo"<h2>POST</h2><br>";
-var_dump($_POST);
-echo"<h2>SESSION</h2><br>";
-var_dump($_SESSION);
 
-$databaseManager->connect();
-$user = new BaseController($databaseManager);
+<body>
 
-if(!empty($_SESSION["email"])){
-    $email=$_SESSION["email"];
-    $coach = $user->getName("coaches", $email);
-}
-
+<header>
+<?php
 require 'includes/coach_header.php';
 ?>
+</header>
 
-
-                
-
+<?php require 'includes/vertical_nav.php';?>
+<div class="container">
                 <div class="welcome-msg">
-                    <h3>Welcome, <?= $_GET["user"] ?> </h3>
+                    <h3>Welcome,<!-- --><?/*= $_GET["user"] */?> </h3>
 
                     <?php //TODO: to display welcome msg?>
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa, dolorem!
@@ -56,9 +56,15 @@ require 'includes/coach_header.php';
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam, sint!</p>
                     <a href="">More info<i class="fas fa-plus"></i></a>
                 </div>
+</div>
 
-    
-               
+<footer>
 <?php 
 require 'includes/footer.php';
 ?>
+</footer>
+
+
+
+</body>
+</html>

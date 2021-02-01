@@ -1,6 +1,2 @@
-</div>
-        </section>
-    </main>
-    <div class="circle"></div>
-</body>
-</html>
+<?php ?>
+<div class="circle"></div>
