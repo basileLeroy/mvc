@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
 
 $turquoise: #3bc4c1;
 $dirty-pink: #d889a7;
@@ -12,93 +12,70 @@ $dark-grey: #878c91;
   margin: 0;
   box-sizing: border-box;
 }
-
-
-
+body {
+  padding: 3rem 2rem;
+  font-family: "Poppins", sans-serif;
+}
 
 a {
   text-decoration: none;
   color: $dark-grey;
 }
 
-body{
-    padding: 3rem 2rem ;
-    font-family: 'Poppins', sans-serif;
-}
-
-
-
-
 .logout {
   position: absolute;
   top: 0%;
   right: 0%;
   padding: 1rem 3rem;
-
   font-size: 1.5rem;
   i {
     color: $grey;
   }
 }
 
-
-
 .vertical-nav {
-    height: 90vh;   
-    top: 10vh;
-    width: 5vw;
+  height: 90vh;
+  top: 10vh;
+  width: 5vw;
   display: flex;
   flex-direction: column;
- 
   align-items: center;
-
   justify-content: space-evenly;
-    position:absolute;
-
-    background-color: #f5f5f5;
-  
-  
+  position: absolute;
   background: linear-gradient(
     to right bottom,
     rgba(255, 255, 255, 0.5),
     rgba(255, 255, 255, 0.8)
   );
   border-radius: 3rem;
-
   backdrop-filter: blur(1.5rem);
-
-  // border-right: 1px solid $grey;
   i {
     color: $dark-grey;
-    font-size: 1.3rem;;
+    font-size: 1.3rem;
   }
-  a i:hover{
+  a i:hover {
     color: $tiffany;
   }
 }
 
 .container {
-    position: absolute;
-    left:13vw;
-   margin:auto;
-    width: 80vw;
-
-    min-height: 90vh;
-    background-color: #f5f5f5;
-  
-  
+  position: absolute;
+  left: 13vw;
+  margin: auto;
+  width: 80vw;
+  min-height: 90vh;
+  background-color: #f5f5f5;
   background: linear-gradient(
     to right bottom,
     rgba(255, 255, 255, 0.8),
     rgba(255, 255, 255, 0.3)
   );
   border-radius: 2rem;
-z-index: 100;
+  z-index: 100;
   backdrop-filter: blur(1.5rem);
   color: $dark-grey;
-  
 }
-.grid{
+.grid {
   display: grid;
   height: 80vh;
   grid-template-columns: 40% 35% 25%;
@@ -112,42 +89,39 @@ z-index: 100;
   }
 }
 .welcome-msg {
-  
   background-color: $yellow;
   grid-row: 1/2;
   grid-column: 1/3;
 }
 
 .exercise-list {
-    grid-column: 1/2;
-    grid-row: 2/4;
-    background-color: $tiffany;
+  grid-column: 1/2;
+  grid-row: 2/4;
+  background-color: $tiffany;
 }
 
 .watch {
-    grid-row: 1/4;
-    grid-column: 3/4;
+  grid-row: 1/4;
+  grid-column: 3/4;
   background-color: $grey;
 }
 .repo {
-    grid-column: 2/3;
-    grid-row: 3/4;
-    border: 3px solid $dirty-pink;
-
+  grid-column: 2/3;
+  grid-row: 3/4;
+  border: 3px solid $dirty-pink;
 }
 .student-list {
-    grid-column: 2/3;
-    grid-row: 2/3;
+  grid-column: 2/3;
+  grid-row: 2/3;
 }
 
-
 .circle {
-    background: $turquoise;
-    height: 40rem;
-    width: 40rem;
-    position: absolute;
-    top: -40%;
-    left: -10%;
-    border-radius: 50%;
-    z-index: -1;
-  }
+  background: $turquoise;
+  height: 40rem;
+  width: 40rem;
+  position: absolute;
+  top: -40%;
+  left: -10%;
+  border-radius: 50%;
+  z-index: -1;
+}

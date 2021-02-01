@@ -6,14 +6,14 @@
           box-sizing: border-box;
 }
 
+body {
+  padding: 3rem 2rem;
+  font-family: "Poppins", sans-serif;
+}
+
 a {
   text-decoration: none;
   color: #878c91;
-}
-
-body {
-  padding: 3rem 2rem;
-  font-family: 'Poppins', sans-serif;
 }
 
 .logout {
@@ -46,7 +46,6 @@ body {
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
   position: absolute;
-  background-color: #f5f5f5;
   background: -webkit-gradient(linear, left top, right bottom, from(rgba(255, 255, 255, 0.5)), to(rgba(255, 255, 255, 0.8)));
   background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.8));
   border-radius: 3rem;
