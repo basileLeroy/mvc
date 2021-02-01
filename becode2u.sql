@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 31, 2021 at 02:08 PM
+-- Generation Time: Feb 01, 2021 at 03:52 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.4.1
 
@@ -222,8 +222,8 @@ CREATE TABLE `training` (
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `username` varchar(25) NOT NULL,
-  `password` varchar(25) NOT NULL,
   `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `role_id` int(11) NOT NULL,
   `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `status` varchar(25) NOT NULL DEFAULT 'active',
@@ -234,15 +234,28 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `username`, `password`, `email`, `role_id`, `create_time`, `status`, `last_login`) VALUES
-(1, 'bert', 'bert', 'bert@becode.org', 1, '2021-01-31 13:06:54', 'active', '2021-01-31 12:56:25'),
-(2, 'tim', 'tim', 'tim@becode.org', 1, '2021-01-31 13:07:04', 'active', '2021-01-31 12:56:25'),
-(3, 'Giomayra', 'student', 'giomayra@becode.org', 2, '2021-01-31 13:07:14', 'active', '2021-01-31 12:56:25'),
-(4, 'Wing', 'student', 'wing@becode.org', 2, '2021-01-31 13:07:25', 'active', '2021-01-31 12:56:25'),
-(5, 'Basile', 'student', 'basile@becode.org', 2, '2021-01-31 13:07:40', 'active', '2021-01-31 12:56:25'),
-(6, 'stud1', 'student', 'stud1@becode.org', 2, '2021-01-31 13:07:52', 'active', '2021-01-31 12:56:25'),
-(7, 'stud2', 'student', 'stud2@becode.org', 2, '2021-01-31 13:07:56', 'active', '2021-01-31 12:56:25'),
-(8, 'stud3', 'student', 'stud3@becode.org', 2, '2021-01-31 13:08:05', 'active', '2021-01-31 12:56:25');
+INSERT INTO `user` (`id`, `username`, `email`, `password`, `role_id`, `create_time`, `status`, `last_login`) VALUES
+(1, 'bert', 'bert@becode.org', 'bert', 1, '2021-01-31 13:06:54', 'active', '2021-01-31 12:56:25'),
+(2, 'tim', 'tim@becode.org', 'tim', 1, '2021-01-31 13:07:04', 'active', '2021-01-31 12:56:25'),
+(3, 'Giomayra', 'giomayra@becode.org', 'student', 2, '2021-01-31 13:07:14', 'active', '2021-01-31 12:56:25'),
+(4, 'Wing', 'wing@becode.org', 'student', 2, '2021-01-31 13:07:25', 'active', '2021-01-31 12:56:25'),
+(5, 'Basile', 'basile@becode.org', 'student', 2, '2021-01-31 13:07:40', 'active', '2021-01-31 12:56:25'),
+(6, 'stud1', 'stud1@becode.org', 'student', 2, '2021-01-31 13:07:52', 'active', '2021-01-31 12:56:25'),
+(7, 'stud2', 'stud2@becode.org', 'student', 2, '2021-01-31 13:07:56', 'active', '2021-01-31 12:56:25'),
+(8, 'stud3', 'stud3@becode.org', 'student', 2, '2021-01-31 13:08:05', 'active', '2021-01-31 12:56:25'),
+(9, 'test2', 'test2@becode.org', '$2y$10$BhGibTxnfjcVlpMlO/Cp2eAQ9s0gvMgRdhURi.L4QLFom6ETo7z7y', 1, '2021-02-01 14:11:14', 'active', '2021-02-01 14:11:14'),
+(10, 'test1', 'test@becode.org', '$2y$10$7Ne9xtd1ZW8Q.fAOTv.Fye8hHOTGGCH6beF692w5SlBu3bhobnmH6', 2, '2021-02-01 14:16:44', 'active', '2021-02-01 14:16:44'),
+(11, 'test3', 'test3@becode.org', '$2y$10$k2F2MVNujdJF4t/FV.c2DOfGOEYv/3/dyHtGDbyLDFOuXHqTL9Wai', 2, '2021-02-01 14:26:08', 'active', '2021-02-01 14:26:08'),
+(12, 'test4', 'test4@becode.org', '$2y$10$.C9V3Y9zkSQZtQHRnorDQuD6vZeqtW1HMbQqSpHq..JDi0c4fUAu6', 2, '2021-02-01 14:28:53', 'active', '2021-02-01 14:28:53'),
+(13, 'test5', 'test5@becode.org', '$2y$10$cRUZuETSPiyCFXulPgrWjuqg.z2syheRyspL5ML6//FfhflXHxcAG', 2, '2021-02-01 14:31:41', 'active', '2021-02-01 14:31:41'),
+(14, 'test6', 'test6@becode.org', '$2y$10$wg9CJbjjEDRs.n8Xcn9YB.SnZWFY8abacxGAl/jTNcT2GxAz20k4u', 2, '2021-02-01 14:32:38', 'active', '2021-02-01 14:32:38'),
+(15, 'test7', 'test7@becode.org', '$2y$10$HvsM7YB0Ku/J4eemQ4/K1OEunlg9O3joBH.22zLUSMcXS8xcgt/WK', 2, '2021-02-01 14:36:48', 'active', '2021-02-01 14:36:48'),
+(16, 'user', 'user@becode.org', '$2y$10$mV0qmrn/ZlJKXInmJQiMZOT2rhhMUZ2hP26vAVyhqiPS7OpCdYOaC', 2, '2021-02-01 14:40:01', 'active', '2021-02-01 14:40:01'),
+(17, 'test8', 'test8@becode.org', '$2y$10$UovNQVeBs6fXaQsvLoQwEOFrPFS.BaURNGhRSRdGMrqVofBn3uMMW', 2, '2021-02-01 14:40:42', 'active', '2021-02-01 14:40:42'),
+(18, 'test9', 'test9@becode.org', '$2y$10$lNEdxPmfU4T1BMEUsDm6mOE9LkMPhWz8e75D0T61KS6yLQzg5Ic6O', 2, '2021-02-01 15:31:37', 'active', '2021-02-01 15:31:37'),
+(19, 'test10', 'test10@becode.org', '$2y$10$ki1SUMZrOvOj3cIcO9duie4fONxYNzaJkth97obCxJd3gCqvbZiDu', 2, '2021-02-01 15:34:09', 'active', '2021-02-01 15:34:09'),
+(20, 'test11', 'test11@becode.org', '$2y$10$bOr3y6JJYQQZWRKMAr1B7O31Qhcwpq.AWXR3/g0iBZDXOr2T3IYKi', 2, '2021-02-01 15:45:05', 'active', '2021-02-01 15:45:05'),
+(21, 'test13', 'test13@becode.org', '$2y$10$Cq8x9qeDrB/qUJdFvrCcNu7crVvaKMtZjKbxjzOUnoildnZ7O1Z1S', 2, '2021-02-01 15:50:06', 'active', '2021-02-01 15:50:06');
 
 -- --------------------------------------------------------
 
@@ -431,7 +444,7 @@ ALTER TABLE `training`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `watch`

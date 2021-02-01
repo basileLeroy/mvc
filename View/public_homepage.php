@@ -49,6 +49,7 @@ var_dump($_SESSION);
 
         <button type="submit" name="login" value="login" id="login">Log in</button>
     </form>
+    <button><a href="View/register_profile.php">Register new account!</a></button>
     <?= $user->errorMessage();?>
 
 </body>
