@@ -5,8 +5,8 @@
 // There is a specific technique to ignore files in git, which we've talked about
 
 $config = [
-    'host' => '127.0.0.1',
+    'host' => 'localhost',
     'user' => 'root',
-    'password' => '',
+    'password' => 'root',
     'databaseName' => 'becode2u',
 ];

@@ -29,6 +29,7 @@ class DatabaseManager
             $this->database = new PDO($dsn, $this->name, $this->password);
 
             $this->database->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+            $this->database->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
 
         } catch (PDOException $exception) { //to get error if connection failed
             
