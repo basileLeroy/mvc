@@ -58,6 +58,7 @@ class UserController {
              switch ($user->getRoleId()) {
                 case 1:
                     include "./View/coach_profile.php";
+
                     break;
                 case 2:
                    include "./View/student_profile.php";
@@ -65,7 +66,7 @@ class UserController {
             }
             $this->sucessMessage();
         } else {
-            include "./index.php";
+            include "./View/public_homepage.php";
             $this->errorMessage();
         }
     }

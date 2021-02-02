@@ -24,10 +24,10 @@
 
         <button type="submit" name="login" value="login" id="login">Log in</button>
         <br><br>
-        <button name="registerNow"><a href="View/register_profile.php">Register new account!</a></button>
-    </form>
 
->
+    </form>
+    <button name="registerNow"><a href="View/register_profile.php">Register new account!</a></button>
+
 
 
 
