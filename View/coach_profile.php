@@ -69,7 +69,7 @@ window.addEventListener('DOMContentLoaded', () => {
         //selectHelper:true,
        
         //cannot use PHP tag inside javascript codes, can only use a file return the values
-        events: '../Controller/WatchController.php',
+        events: 'Controller/WatchController.php',
         displayEventTime: false,
         eventColor: '#d889a7',
         eventTextColor: 'white',

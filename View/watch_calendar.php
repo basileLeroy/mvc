@@ -32,6 +32,7 @@ window.addEventListener('DOMContentLoaded', () => {
         selectHelper:true,
        
         //cannot use PHP tag inside javascript codes, can only use a file return the values
+        //the path is start from the index.php
         events: '../Controller/WatchController.php',
         displayEventTime: false,
         eventColor: '#d889a7',
