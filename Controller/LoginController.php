@@ -28,10 +28,10 @@ class LoginController
             case "1":
                 if ($result['password'] == $password && $result['email'] == $email) {
 
-                    header("Location: ./View/coach_profile.php");
+                    header("Location: ./View/coach_profile.php?user={$result['username']}");
                 } else {
 
-                    header("Location: ./View/public_homepage.php");
+                    header("Location: ./View/public_homepage.php?user={$result['username']}");
                     $this->errorMessage();
 
                 }

@@ -3,18 +3,13 @@
 require '../setup.php';
 // echo"<h2>POST</h2>";
 // var_dump($_POST);
-// echo"<h2>SESSION</h2>";
-// var_dump($_SESSION);
+// echo"<h2>GET</h2>";
+// var_dump($_GET);
 
 // $databaseManager->connect();
 // $user = new BaseController($databaseManager);
 
-// if(!empty($_SESSION["email"])){
-//     $email=$_SESSION["email"];
-//     $student = $user->getName("students", $email);
-// }
 
-// $watches = $user->getWatchSchedule();
 
 require 'includes/header_watch.php';
 require 'includes/nav_student.php';
@@ -24,13 +19,9 @@ require 'includes/nav_student.php';
     <div class="grid-profile">
         <div class="welcome-msg">
             <h3>Welcome,
-               
-                <?/*= $_GET["user"] */?>
+                <span class="welcome-name"><?php echo $_GET["user"]; ?>!</span><br>
+                How are you doing today?
             </h3>
-
-            <?php //TODO: to display welcome msg?>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa, dolorem!
-
         </div>
         <div class="exercise-list">
             <?php //TODO: for the shortlist of exercises?>
@@ -39,14 +30,13 @@ require 'includes/nav_student.php';
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam, sint!</p>
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam, sint!</p>
             <a href="">More info<i class="fas fa-plus"></i></a>
-            <button type="submit"><a href="create_challenge.php">Create New Challenge</a></button>
 
         </div>
 
         <div class="watch">
             <div class="container">
-            <h3>Watch Schedule</h3>
-            <div id="calendar"></div>
+                <h3>Watch Schedule</h3>
+                <div id="calendar"></div>
 
             </div>
         </div>
@@ -58,10 +48,22 @@ require 'includes/nav_student.php';
         </div>
 
         <div class="student-list">
-            <?php //TODO: to display the student list of the same class ?>
             <h3>Students</h3>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam, sint!</p>
-            <a href="">More info<i class="fas fa-plus"></i></a>
+            <p>Curious about your fellow classmates?</p>
+            <button class="modal-btn" onclick="document.getElementById('class-modal').style.display='block'">More
+                Info</button>
+
+            <div id="class-modal" class="modal">
+                <span onclick="document.getElementById('class-modal').style.display='none'" class="close"
+                    title="Close Modal">&times;</span>
+
+                    <!-- TODO: to display student list of the class -->
+
+                
+
+            </div>
+
+
         </div>
     </div>
 </div>
@@ -70,6 +72,16 @@ require 'includes/nav_student.php';
 
 
 <script>
+// Get the modal
+var modal = document.getElementById('class-modal');
+
+// When the user clicks anywhere  of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
 window.addEventListener('DOMContentLoaded', () => {
 
     var calendar = $('#calendar').fullCalendar({
@@ -78,9 +90,9 @@ window.addEventListener('DOMContentLoaded', () => {
         editable: false,
         // height: 400 ,
         contentHeight: 350,
-        selectable:true,
+        selectable: true,
         //selectHelper:true,
-       
+
         //cannot use PHP tag inside javascript codes, can only use a file return the values
         events: '../Controller/WatchController.php',
         displayEventTime: false,

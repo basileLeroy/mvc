@@ -20,7 +20,7 @@ class BaseController
    
     //TODO: watch reminder
 
-    public function getName($role,$email)
+    public function getName($email)
     {
         $sql = "SELECT * FROM $role where email='$email'";
 
