@@ -5,7 +5,7 @@
 
 if(isset($_POST["register"])){
 
-    $databaseManager->connect();
+   // $databaseManager->connect();
     $newUser = new RegisterController($databaseManager);
 
     $userName = $_POST["userName"];
