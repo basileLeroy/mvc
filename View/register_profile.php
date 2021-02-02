@@ -1,6 +1,6 @@
 <?php 
 
-//require_once '../setup.php';
+require_once '../setup.php';
 
 
 if(isset($_POST["register"])){
@@ -42,7 +42,7 @@ var_dump($_SESSION);
     </header>
 
     <form action="" method="POST">
-        <h3>REgister a new account:</h3>
+        <h3>Register a new account:</h3>
         </select><br>
         <input type="text" name="userName" placeholder="Your full name...">
         <br><br>
@@ -61,7 +61,8 @@ var_dump($_SESSION);
 
         <button type="submit" name="register" value="register" id="register">Register now!</button>
     </form>
-    <?= $newUser->errorMessage();?>
+
+    <?php $newUser->errorMessage();?>
 
 </body>
 </html>

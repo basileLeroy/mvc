@@ -1,6 +1,6 @@
 <?php
 declare(strict_types = 1);
-require_once './Modal/repository/RegisterRepository.php';
+require_once '../Modal/repository/RegisterRepository.php';
 
 
 class RegisterController
@@ -19,33 +19,29 @@ class RegisterController
 
     public function register(string $userName, string $email, string $password, string $repeatPassword, int $userRole)
     {
+        echo "TEST TEST";
         if (emptyRegisterInput($userName, $email, $password, $repeatPassword) !== false) {
             header("location: ../View/register_profile.php?error=Empty-fields");
-            errorMessage();
             exit();
         }
 
         if (invalidyUsername($userName) !== false) {
             header("location: ../View/register_profile.php?error=Invalid-username");
-            errorMessage();
             exit();
         }
 
         if (invalidEmail($email) !== false) {
             header("location: ../View/register_profile.php?error=Invalid-email");
-            errorMessage();
             exit();
         }
 
         if (passwordMatch($password, $repeatPassword) !== false) {
             header("location: ../View/register_profile.php?error=No-matching-pwd");
-            errorMessage();
             exit();
         }
 
         if (userExists($this->databaseManager, $userName, $email) !== false) {
             header("location: ../View/register_profile.php?error=Uid-already-exists");
-            errorMessage();
             exit();
         }
 
@@ -53,4 +49,41 @@ class RegisterController
         
     }
 
+    // public function getErrorMEssage()
+    // {
+    //     errorMessage();
+    // }
+
+    function errorMessage()
+    {
+        if (isset($_GET["error"])) {
+            switch ($_GET["error"]) {
+
+                case 'Empty-fields':
+                    echo '<h3 style="color: red; font-size: 16px;">FILL IN ALL FIELDS!</h3>';
+
+                    break;
+
+                case 'Invalid-username':
+                    echo '<h3 style="color: red; font-size: 16px;">INVALID USERNAME!</h3>';
+
+                    break;
+
+                case 'Invalid-email':
+                    echo '<h3 style="color: red; font-size: 16px;">INVALID EMAIL!</h3>';
+
+                    break;
+
+                case 'No-matching-pwd':
+                    echo '<h3 style="color: red; font-size: 16px;">PASSWORDS DON\'T MATCH!</h3>';
+
+                    break;
+
+                case 'Uid-already-exists':
+                    echo '<h3 style="color: red; font-size: 16px;">ACCOUNT ALREADY EXISTS!</h3>';
+
+                    break;
+            }
+        }
+    }
 }

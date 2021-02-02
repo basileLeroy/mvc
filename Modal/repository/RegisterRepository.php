@@ -106,8 +106,3 @@ function createUser($databaseManager, $userName, $email, $password, $userRole)
     exit();
 }
 
-function errorMessage()
-{
-    $loginError = '<h3 style="color: red; font-size: 16px;">INVALID SUBMIT!</h3>';
-    return $loginError;
-}
