@@ -14,12 +14,6 @@ session_start();
 // Load you classes
 require_once 'config.php';
 require_once 'Modal/DatabaseManager.php';
-require_once 'Controller/LoginController.php';
-require_once 'Controller/RegisterController.php';
-require_once 'Controller/BaseController.php';
-require_once 'Controller/LoginController.php';
-require_once 'Controller/UserController.php';
-
 
 $databaseManager = new DatabaseManager($config['host'], $config['user'], $config['password'], $config['databaseName']);
 

@@ -7,9 +7,9 @@ require_once './Modal/business/Student.php';*/
 /*require_once '../Modal/business/User.php';
 require_once '../Modal/repository/CoacherRepository.php';*/
 
-require '../Modal/repository/UserRepository.php';
-require '../Modal/business/User.php';
-require '../Modal/repository/CoacherRepository.php';
+require './Modal/repository/UserRepository.php';
+require './Modal/business/User.php';
+require './Modal/repository/CoacherRepository.php';
 
 class UserController {
 
