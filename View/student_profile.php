@@ -1,21 +1,5 @@
 <?php 
 
-require '../setup.php';
-// echo"<h2>POST</h2>";
-// var_dump($_POST);
-// echo"<h2>SESSION</h2>";
-// var_dump($_SESSION);
-
-// $databaseManager->connect();
-// $user = new BaseController($databaseManager);
-
-// if(!empty($_SESSION["email"])){
-//     $email=$_SESSION["email"];
-//     $student = $user->getName("students", $email);
-// }
-
-// $watches = $user->getWatchSchedule();
-
 require 'includes/header_watch.php';
 require 'includes/nav_student.php';
 ?>

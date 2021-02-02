@@ -14,6 +14,14 @@ class User {
     {
     }
 
+    public static function withData(array $data) {
+        $instance = new self();
+        foreach ($data as $key => $value) {
+            $instance->{$key} = $value;
+        }
+       return $instance;
+    }
+
     /**
      * @return mixed
      */

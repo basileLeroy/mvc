@@ -2,6 +2,9 @@
 require 'includes/header_watch.php';
 
 require 'includes/nav_coach.php';
+
+include_once 'handles/userHandle.php';
+
 ?>
 <div class="resize-container">
 
@@ -10,12 +13,11 @@ require 'includes/nav_coach.php';
     <div class="grid-profile">
         <div class="welcome-msg">
             <h3>Welcome,
-                <!-- -->
-                <?/*= $_GET["user"] */?>
+            <?php echo $_GET['user'] ?>
             </h3>
 
             <?php //TODO: to display welcome msg?>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa, dolorem!
+            Enjoy and learn! Have a fun day!!
 
         </div>
         <div class="exercise-list">
