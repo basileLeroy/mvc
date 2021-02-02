@@ -13,7 +13,7 @@ include_once 'handles/userHandle.php';
     <div class="grid-profile">
         <div class="welcome-msg">
             <h3>Welcome,
-            <?php echo $_GET['user'] ?>
+            <?php echo $_SESSION['logginUserName'] ?>
             </h3>
 
             <?php //TODO: to display welcome msg?>
