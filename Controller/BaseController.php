@@ -20,7 +20,7 @@ class BaseController
    
     //TODO: watch reminder
 
-    public function getName($role,$email)
+    public function getName($email)
     {
         $sql = "SELECT * FROM $role where email='$email'";
 
@@ -36,18 +36,20 @@ class BaseController
     {
         //TODO: change the $sql for the left join with students table instead of user table
 
-        $sql = "SELECT * FROM watch LEFT JOIN user ON watch.user_id = user.id WHERE user.role_id=2";
+        $sql = "SELECT watch.id, watch.name, watch.date, students.first_name FROM watch, students WHERE students.id=watch.student_id;";
 
         $databaseUser = $this->databaseManager->database->prepare($sql);
         $databaseUser->execute();
         $result = $databaseUser->fetchAll();
 
-
         foreach($result as $row)
         {
+            // echo "<pre>";
+            // var_dump($result);
+            // echo "</pre>";
             $data[] = array(
             'id'   => $row["id"],
-            'title'   => $row["username"],
+            'title'   => $row["first_name"],
             'start'   => $row["date"],
             );
         }
