@@ -44,12 +44,14 @@ class BaseController
 
         foreach($result as $row)
         {
-            var_dump($result);
-            // $data[] = array(
-            // 'id'   => $row["id"],
-            // 'title'   => $row["username"],
-            // 'start'   => $row["date"],
-            // );
+            // echo "<pre>";
+            // var_dump($result);
+            // echo "</pre>";
+            $data[] = array(
+            'id'   => $row["id"],
+            'title'   => $row["first_name"],
+            'start'   => $row["date"],
+            );
         }
 
         echo json_encode($data); 
