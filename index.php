@@ -12,6 +12,7 @@ $email = $password = "";
 $email_err = $password_err = "";
 
 $databaseManager->connect();
+
 $userController = new UserController($databaseManager);
 $result = null;
 

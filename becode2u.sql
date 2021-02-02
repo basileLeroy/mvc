@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 01, 2021 at 03:52 PM
+-- Generation Time: Feb 02, 2021 at 09:33 AM
 -- Server version: 5.7.24
 -- PHP Version: 7.4.1
 
@@ -186,6 +186,13 @@ CREATE TABLE `students` (
   `watch_order` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `students`
+--
+
+INSERT INTO `students` (`id`, `first_name`, `last_name`, `dni`, `gender`, `create_time`, `user_id`, `watch_order`) VALUES
+(1, 'Wing', 'stuff', '1800', 'Female', '2021-02-02 09:32:24', 4, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -271,6 +278,13 @@ CREATE TABLE `watch` (
   `student_id` int(11) NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `watch`
+--
+
+INSERT INTO `watch` (`id`, `name`, `round`, `url`, `student_id`, `date`) VALUES
+(1, 'Wing', 1, 'abx.com', 1, '2021-02-02 09:33:03');
 
 --
 -- Indexes for dumped tables
@@ -429,6 +443,12 @@ ALTER TABLE `role`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `students`
+--
+ALTER TABLE `students`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `team`
 --
 ALTER TABLE `team`
@@ -450,7 +470,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `watch`
 --
 ALTER TABLE `watch`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
@@ -518,7 +538,7 @@ ALTER TABLE `user`
 -- Constraints for table `watch`
 --
 ALTER TABLE `watch`
-  ADD CONSTRAINT `watch_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `watch_fksomething_1` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
