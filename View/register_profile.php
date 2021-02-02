@@ -1,28 +1,31 @@
 <?php 
 
-//require_once '../setup.php';
+// require_once '../setup.php';
 
 
-if(isset($_POST["register"])){
+// if(isset($_POST["register"])){
 
-   // $databaseManager->connect();
-    $newUser = new RegisterController($databaseManager);
+//     $databaseManager->connect();
+//     $newUser = new RegisterController($databaseManager);
 
-    $userName = $_POST["userName"];
-    $email=$_POST["email"];
-    $password=$_POST["password"];
-    $repeatPassword=$_POST["repeatPassword"];
-    $userRole = (int) $_POST['userRole'];
+//     $userName = $_POST["userName"];
+//     $email=$_POST["email"];
+//     $password=$_POST["password"];
+//     $repeatPassword=$_POST["repeatPassword"];
+//     $userRole = (int) $_POST['userRole'];
 
-    $_SESSION["email"] = $_POST["email"];
-    $newUser->register($userName, $email, $password, $repeatPassword, $userRole);
+//     $_SESSION["email"] = $_POST["email"];
+//     $newUser->register($userName, $email, $password, $repeatPassword, $userRole);
 
-}
+// }
 
 echo "<h2>POST</h2>";
 var_dump($_POST);
-echo "<h2>SESSION</h2>";
-var_dump($_SESSION);
+
+echo "<h2>GET</h2>";
+var_dump($_GET);
+// echo "<h2>SESSION</h2>";
+// var_dump($_SESSION);
 
 
 
@@ -42,7 +45,7 @@ var_dump($_SESSION);
     </header>
 
     <form action="" method="POST">
-        <h3>REgister a new account:</h3>
+        <h3>Register a new account:</h3>
         </select><br>
         <input type="text" name="userName" placeholder="Your full name...">
         <br><br>
@@ -61,7 +64,8 @@ var_dump($_SESSION);
 
         <button type="submit" name="register" value="register" id="register">Register now!</button>
     </form>
-    <?= $newUser->errorMessage();?>
+
+    <?php if(isset($controller)) { $controller->errorMessage(); } ?>
 
 </body>
 </html>

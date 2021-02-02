@@ -2,10 +2,10 @@
 -- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Feb 02, 2021 at 09:33 AM
--- Server version: 5.7.24
--- PHP Version: 7.4.1
+-- Host: 127.0.0.1
+-- Generation Time: Feb 02, 2021 at 01:22 PM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 8.0.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,7 +31,7 @@ CREATE TABLE `administrator` (
   `id` int(11) NOT NULL,
   `first_name` int(11) NOT NULL,
   `last_name` int(11) NOT NULL,
-  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `create_time` timestamp NOT NULL DEFAULT current_timestamp(),
   `user_id` int(11) NOT NULL,
   `email` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -62,8 +62,8 @@ CREATE TABLE `challenge` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
-  `date_open` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `date_due` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `date_open` timestamp NOT NULL DEFAULT current_timestamp(),
+  `date_due` timestamp NOT NULL DEFAULT current_timestamp(),
   `url` mediumtext NOT NULL,
   `type` varchar(30) NOT NULL,
   `class_id` int(11) NOT NULL
@@ -129,7 +129,7 @@ CREATE TABLE `coachers` (
   `last_name` varchar(255) NOT NULL,
   `dni` varchar(255) NOT NULL,
   `gender` varchar(30) NOT NULL,
-  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `create_time` timestamp NOT NULL DEFAULT current_timestamp(),
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -145,7 +145,7 @@ CREATE TABLE `repository` (
   `challenge_id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `url` mediumtext NOT NULL,
-  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `create_time` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -181,9 +181,9 @@ CREATE TABLE `students` (
   `last_name` varchar(255) NOT NULL,
   `dni` varchar(255) NOT NULL,
   `gender` varchar(255) NOT NULL,
-  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `create_time` timestamp NOT NULL DEFAULT current_timestamp(),
   `user_id` int(11) NOT NULL,
-  `watch_order` int(11) DEFAULT NULL
+  `watch_order` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -191,7 +191,13 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`id`, `first_name`, `last_name`, `dni`, `gender`, `create_time`, `user_id`, `watch_order`) VALUES
-(1, 'Wing', 'stuff', '1800', 'Female', '2021-02-02 09:32:24', 4, 1);
+(1, 'Wing', 'stuff', '1800', 'Female', '2021-02-02 09:32:24', 4, 1),
+(2, 'stud1', 'ln', '19009', 'male', '2021-02-02 09:46:19', 6, 2),
+(9, 'giomayra', 'ln', '8028028', 'mmmm', '2021-02-04 09:54:16', 3, 3),
+(11, 'basile', 'ln', '1898190', 'M', '2021-02-02 09:57:36', 5, 4),
+(14, 'stud2', 'lnnn', '7897897897', 'ma', '2021-02-02 10:02:41', 7, 6),
+(15, 'stud3', 'lnnn', '678798', 'femalle', '2021-02-02 10:05:27', 8, 7),
+(17, 'student4', 'lastname', '7678888789', 'FFF', '2021-02-02 10:06:36', 12, 8);
 
 -- --------------------------------------------------------
 
@@ -214,8 +220,8 @@ CREATE TABLE `training` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
-  `date_open` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `date_due` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `date_open` timestamp NOT NULL DEFAULT current_timestamp(),
+  `date_due` timestamp NOT NULL DEFAULT current_timestamp(),
   `campus_id` int(11) NOT NULL,
   `status` varchar(25) NOT NULL DEFAULT 'active'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -232,9 +238,9 @@ CREATE TABLE `user` (
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `role_id` int(11) NOT NULL,
-  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `create_time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `status` varchar(25) NOT NULL DEFAULT 'active',
-  `last_login` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `last_login` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -274,9 +280,9 @@ CREATE TABLE `watch` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `round` int(11) NOT NULL,
-  `url` mediumtext,
+  `url` mediumtext DEFAULT NULL,
   `student_id` int(11) NOT NULL,
-  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `date` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -284,7 +290,11 @@ CREATE TABLE `watch` (
 --
 
 INSERT INTO `watch` (`id`, `name`, `round`, `url`, `student_id`, `date`) VALUES
-(1, 'Wing', 1, 'abx.com', 1, '2021-02-02 09:33:03');
+(1, 'react.js', 1, 'abx.com', 1, '2021-02-02'),
+(2, 'googleAPI', 1, 'hhh.com', 2, '2021-02-04'),
+(4, '3D.js', 1, 'aaa.com', 11, '2021-02-08'),
+(5, 'postman', 1, 'aaa.com', 15, '2021-02-09'),
+(6, 'hackathon', 1, 'hhh.com', 9, '2021-02-10');
 
 --
 -- Indexes for dumped tables
@@ -368,7 +378,6 @@ ALTER TABLE `role`
 --
 ALTER TABLE `students`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `dni` (`dni`),
   ADD UNIQUE KEY `email` (`gender`),
   ADD KEY `user_id` (`user_id`);
 
@@ -446,7 +455,7 @@ ALTER TABLE `role`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `team`
@@ -470,7 +479,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `watch`
 --
 ALTER TABLE `watch`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables

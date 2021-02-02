@@ -20,7 +20,6 @@ class DatabaseManager
     public function connect()
     {
         try{
-            
             //use $dsn for just clearer view
             $dsn = "mysql:host=$this->host;dbname=$this->databaseName;";
 
