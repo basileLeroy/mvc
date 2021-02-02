@@ -35,6 +35,7 @@ class UserController {
         if ($user) {
             $_SESSION["logginUserId"] = $user->getId();
             $_SESSION["logginUserName"] = $user->getUsername();
+           // $_SESSION['user'] = serialize((array) $user);
         }
 
         //you should not echo anything inside your controller - only assign vars here
@@ -42,7 +43,7 @@ class UserController {
 
         //load the view
         $this->renderByUserRole($user);
-        exit;
+        exit();
     }
 
     public function login($username, $password)
@@ -56,18 +57,17 @@ class UserController {
         {
              switch ($user->getRoleId()) {
                 case 1:
-                    header("Location: ./View/coach_profile.php?user={$user->getUsername()}");
+                    include "./View/coach_profile.php";
                     break;
                 case 2:
-                    header("Location: ./View/student_profile.php?user={$user->getUsername()}");
-                    break;
+                   include "./View/student_profile.php";
+                   break;
             }
             $this->sucessMessage();
         } else {
-            header("Location: ./index.php");
+            include "./index.php";
             $this->errorMessage();
         }
-
     }
 
     public function errorMessage()

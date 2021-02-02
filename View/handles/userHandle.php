@@ -1,13 +1,14 @@
 <?php
 declare(strict_types = 1);
-require "../Modal/business/User.php";
 
-session_start();
-// Show errors so we get helpful information
-ini_set('display_errors', '1');
-ini_set('display_startup_errors', '1');
-error_reporting(E_ALL);
+$userId = $userName = "";
+if (isset($_SESSION["logginUserId"]) && isset($_SESSION["logginUserName"])){
+    $userId = $_SESSION["logginUserId"];
+    $userName = $_SESSION["logginUserName"];
+}
 
-print_r($_SESSION);
-print_r($_GET);
+
+
+
+
 
