@@ -1,7 +1,9 @@
 <?php
-require_once '../Modal/repository/RegisterRepository.php';
+declare(strict_types = 1);
+require_once './Modal/repository/RegisterRepository.php';
 
-class RegisterController 
+
+class RegisterController
 {
     private $databaseManager;
     // private $userName;
@@ -50,4 +52,5 @@ class RegisterController
         createUser($this->databaseManager, $userName, $email, $password, $userRole);
         
     }
+
 }

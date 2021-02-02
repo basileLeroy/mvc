@@ -42,7 +42,6 @@ class BaseController
         $databaseUser->execute();
         $result = $databaseUser->fetchAll();
 
-
         foreach($result as $row)
         {
             $data[] = array(

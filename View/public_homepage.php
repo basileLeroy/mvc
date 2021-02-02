@@ -1,29 +1,4 @@
-<?php 
-
-require './setup.php';
-
-
-if(!empty($_POST["login"])){
-
-    $databaseManager->connect();
-    $user = new LoginController($databaseManager);
-
-    $email=$_POST["email"];
-    $password=$_POST["password"];
-    
-    $_SESSION["email"] = $_POST["email"];
-    $user->login($email, $password);
-
-}
-
-echo "<h2>POST</h2>";
-var_dump($_POST);
-echo "<h2>SESSION</h2>";
-var_dump($_SESSION);
-
-
-
-?>
+<?php ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -50,7 +25,9 @@ var_dump($_SESSION);
         <button type="submit" name="login" value="login" id="login">Log in</button>
     </form>
     <button><a href="View/register_profile.php">Register new account!</a></button>
-    <?= $user->errorMessage();?>
+    <?= $userController->getMessage();?>
+
+
 
 </body>
 </html>

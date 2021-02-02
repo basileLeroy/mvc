@@ -1,7 +1,45 @@
 <?php
+declare(strict_types = 1);
+class LoginController {
+
+    public function render(array $get, array $post)
+    {
+        //this is just example code, you can remove the line below
+
+        //you should not echo anything inside your controller - only assign vars here
+        // then the view will actually display them.
+
+        //load the view
+
+    }
 
 
-class LoginController
+}
+
+
+/*$databaseManager = new DatabaseManager($config['host'], $config['user'], $config['password'], $config['databaseName']);
+$databaseManager->connect();
+
+$user = new User();*/
+
+// This example is about a Pokémon card collection
+// Update the naming if you'd like to work with another collection
+/*$userRepository = new UserRepository($databaseManager);
+$user = $userRepository->get();
+
+if (isset($_POST["add"])) {
+    $name = $_POST["name"];
+    $type = $_POST["type"];
+    $hp = (int) $_POST["hp"];
+    $stage = $_POST["stage"];
+    $info = $_POST["info"];
+    $attack = $_POST["attack"];
+    $cardRepository->create($name, $type, $hp, $stage, $info, $attack);
+    $cards = $cardRepository->get();
+}*/
+
+
+/*class LoginController
 {
     private $databaseManager;
     public $loginError;
@@ -57,4 +95,4 @@ class LoginController
         $loginError = $this->loginError;
         return $loginError;
     }
-}
+}*/

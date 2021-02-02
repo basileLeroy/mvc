@@ -2,6 +2,9 @@
 require 'includes/header_watch.php';
 
 require 'includes/nav_coach.php';
+
+include_once 'handles/userHandle.php';
+
 ?>
 <div class="resize-container">
 
@@ -12,9 +15,11 @@ require 'includes/nav_coach.php';
         <div class="welcome-msg">
             <h3>Welcome,
                 <span class="welcome-name"><?php echo $_GET["user"]; ?>!</span><br>
-                 How are you doing today?
+                 How are you doing today?Enjoy and learn! Have a fun day!!
             </h3>
         </div>
+         
+
         </div>
         <div class="exercise-list">
             <?php //TODO: for the shortlist of exercises?>
@@ -79,7 +84,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     var calendar = $('#calendar').fullCalendar({
 
-               //fixedWeekCount: false,
+        //fixedWeekCount: false,
         editable: false,
         // height: 400 ,
         contentHeight: 350,
