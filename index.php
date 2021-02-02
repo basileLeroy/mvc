@@ -7,6 +7,8 @@ require_once 'setup.php';
 require_once 'Controller/LoginController.php';
 require_once 'Controller/UserController.php';
 require_once 'Modal/DatabaseManager.php';*/
+require_once './Modal/business/User.php';
+
 
 $email = $password = "";
 $email_err = $password_err = "";
