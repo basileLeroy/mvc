@@ -24,10 +24,12 @@
 
         <button type="submit" name="login" value="login" id="login">Log in</button>
         <br><br>
-        <button name="registerNow"><a href="View/register_profile.php">Register new account!</a></button>
+
+        <!-- TODO: Pull the GET error value -->
+        <button name="registerNow"><a href="?page=register&error=<?=$_GET['error']?>">Register new account!</a></button>
     </form>
 
->
+
 
 
 

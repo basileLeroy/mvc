@@ -61,7 +61,6 @@ var_dump($_GET);
         </select>
         <br><br>
         <hr>
-
         <button type="submit" name="register" value="register" id="register">Register now!</button>
     </form>
 

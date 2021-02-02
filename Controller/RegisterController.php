@@ -1,6 +1,6 @@
 <?php
 declare(strict_types = 1);
-require_once '../Modal/repository/RegisterRepository.php';
+require_once './Modal/repository/RegisterRepository.php';
 
 
 class RegisterController
@@ -19,11 +19,13 @@ class RegisterController
 
     public function render(array $get, array $post)
     {
+        echo 'TEST 2';
         if (isset($_POST)) {
+            $_GET['error'] = "inside-render";
             register($this->databaseManager);
         }
         // header("location: ../View/register_profile.php?page=register");
-        require 'View/register_profile.php?page=register';
+        require '../index.php?page=register';
     }
 
 

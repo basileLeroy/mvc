@@ -2,6 +2,10 @@
 
 function register($databaseManager)
 {
+    echo "TEST B";
+    echo "<pre>";
+    var_dump($_GET);
+    echo "</pre>";
     
     $userName = $_POST["userName"];
     $email=$_POST["email"];
@@ -10,41 +14,32 @@ function register($databaseManager)
     $userRole = (int) $_POST['userRole'];
 
     if (emptyRegisterInput($userName, $email, $password, $repeatPassword) !== false) {
-        // $error = "Empty-fields";
-        $_GET['page'] = "register";
-        $_GET['error'] = "blabal";
-        // header("location: ./View/register_profile.php?page={$_GET['page']}&error={$_GET['error']}");
-
+        $_GET['error'] = "Empty-fields";
+        return $_GET['error'];
         exit();
     }
 
     if (invalidyUsername($userName) !== false) {
-        $_GET['page'] = "register";
         $_GET['error'] = "Invalid-username";
-        // header("location: ./View/register_profile.php?page={$_GET['page']}&error={$_GET['error']}");
         exit();
     }
 
     if (invalidEmail($email) !== false) {
-        $_GET['page'] = "register";
         $_GET['error'] = "Invalid-email";
-        // header("location: ./View/register_profile.php?page={$_GET['page']}&error={$_GET['error']}");
         exit();
     }
 
     if (passwordMatch($password, $repeatPassword) !== false) {
-        $_GET['page'] = "register";
         $_GET['error'] = "No-matching-pwd";
-        // header("location: ./View/register_profile.php?page={$_GET['page']}&error={$_GET['error']}");
         exit();
     }
 
     if (userExists($databaseManager, $userName, $email) !== false) {
-        $_GET['page'] = "register";
         $_GET['error'] = "Uid-already-exists";
-        // header("location: ./View/register_profile.php?page={$_GET['page']}&error={$_GET['error']}");
         exit();
     }
+
+    header("location: index.php?page={$_GET['page']}&error={$_GET['error']}");
 
     createUser($databaseManager, $userName, $email, $password, $userRole);
     
@@ -102,7 +97,7 @@ function userExists($databaseManager, $userName, $email)
     $sqlStatement = $databaseManager->database->prepare($sql);
 
     if (!$sqlStatement) {
-        require 'View/register_profile.php?error=Stmt-Failed';
+        require 'index.php?error=Stmt-Failed';
         exit();
     }
 
@@ -116,6 +111,7 @@ function userExists($databaseManager, $userName, $email)
         return $statementResult;
     } else {
         $result = false;
+
         return $result;
     }
 
@@ -130,7 +126,7 @@ function createUser($databaseManager, $userName, $email, $password, $userRole)
     $sqlStatement = $databaseManager->database->prepare($sql);
 
     if (!$sqlStatement) {
-        require 'View/register_profile.php?error=Stmt-Failed';
+        require 'index.php?error=Stmt-Failed';
         exit();
     }
 
