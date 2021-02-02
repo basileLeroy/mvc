@@ -3,10 +3,22 @@ declare(strict_types = 1);
 
 require_once 'setup.php';
 
-/*
-require_once 'Controller/LoginController.php';
+require_once 'View/register_profile.php';
+require_once 'Controller/RegisterController.php';
+require_once 'Modal/repository/RegisterRepository.php';
+
 require_once 'Controller/UserController.php';
-require_once 'Modal/DatabaseManager.php';*/
+require_once 'Modal/repository/UserRepository.php';
+require_once 'Modal/business/User.php';
+require_once 'Modal/repository/CoacherRepository.php';
+
+
+
+
+
+// require_once 'Controller/LoginController.php';
+
+// require_once 'Modal/DatabaseManager.php';
 
 $email = $password = "";
 $email_err = $password_err = "";
@@ -17,44 +29,22 @@ $userController = new UserController($databaseManager);
 $result = null;
 
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+// if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    if (empty(trim($_POST['email']))) {
-        $email_err = "The email is required.";
-    } else {
-        $email = trim($_POST["email"]);
-    }
-
-    if (empty(trim($_POST['password']))) {
-        $password_err = "The username is password.";
-    } else {
-        $password = trim($_POST["password"]);
-    }
-
-    if ($email_err === "" && $password_err === "") {
-        $userController->render($_GET, $_POST);
-    }
+//     if ($email_err === "" && $password_err === "") {
+//         $userController->render($_GET, $_POST);
+//     }
+// }
+$controller = "";
+if (isset($_GET['page']) && $_GET['page'] === 'register'){
+    $controller = new RegisterController($databaseManager);
 }
 
+// if (isset($_GET['page']) && $_GET['page'] === 'login'){
+    // $controller = new LoginController();
+// }
 
-
-
-
-/*$controller = new HomeController();
-
-if (isset($_GET['page']) && $_GET['page'] === 'info'){
-    $controller = new InfoController();
-}
-
-if (isset($_GET['page']) && $_GET['page'] === 'login'){
-    $controller = new LoginController();
-}
-
-$controller->render($_GET, $_POST);*/
-
-
-
-
+$controller->render($_GET, $_POST);
 
 // create variable and call funtion inside it
 // if (isset($_POST['login'])) {

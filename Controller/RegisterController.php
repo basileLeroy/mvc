@@ -1,6 +1,5 @@
 <?php
 declare(strict_types = 1);
-require_once '../Modal/repository/RegisterRepository.php';
 
 
 class RegisterController
@@ -14,40 +13,18 @@ class RegisterController
     public function __construct(DatabaseManager $databaseManager)
     {
         $this->databaseManager = $databaseManager;
-        
+
     }
 
-    public function register(string $userName, string $email, string $password, string $repeatPassword, int $userRole)
+    public function render(array $get, array $post)
     {
-        echo "TEST TEST";
-        if (emptyRegisterInput($userName, $email, $password, $repeatPassword) !== false) {
-            header("location: ../View/register_profile.php?error=Empty-fields");
-            exit();
+        if (isset($_POST)) {
+            register($this->databaseManager);
         }
-
-        if (invalidyUsername($userName) !== false) {
-            header("location: ../View/register_profile.php?error=Invalid-username");
-            exit();
-        }
-
-        if (invalidEmail($email) !== false) {
-            header("location: ../View/register_profile.php?error=Invalid-email");
-            exit();
-        }
-
-        if (passwordMatch($password, $repeatPassword) !== false) {
-            header("location: ../View/register_profile.php?error=No-matching-pwd");
-            exit();
-        }
-
-        if (userExists($this->databaseManager, $userName, $email) !== false) {
-            header("location: ../View/register_profile.php?error=Uid-already-exists");
-            exit();
-        }
-
-        createUser($this->databaseManager, $userName, $email, $password, $userRole);
-        
+        // header("location: ../View/register_profile.php?page=register");
+        require 'View/register_profile.php?page=register';
     }
+
 
     // public function getErrorMEssage()
     // {
