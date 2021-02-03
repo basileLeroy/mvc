@@ -11,6 +11,9 @@ class BaseController
         $this->databaseManager = $databaseManager;
     }
 
+    public function render() {
+    }
+
     //TODO: select admin role
 
 

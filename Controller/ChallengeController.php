@@ -7,14 +7,13 @@ require_once './Modal/business/Student.php';*/
 /*require_once '../Modal/business/User.php';
 require_once '../Modal/repository/CoacherRepository.php';*/
 
-require_once './Modal/repository/UserRepository.php';
-require_once './Modal/business/User.php';
-require_once './Modal/repository/CoacherRepository.php';
+require_once './Modal/business/Challenge.php';
+require_once './Modal/repository/ChallengeRepository.php';
 
-class UserController {
+class ChallengeController {
 
-    private $userRepository;
-    public $loginError;
+    private $challengeRepository;
+   // public $loginError;
     private $message;
 
     /**
@@ -22,20 +21,38 @@ class UserController {
      */
     public function __construct(DatabaseManager $databaseManager)
     {
-        $this->userRepository = new UserRepository($databaseManager);
+        $this->challengeRepository = new ChallengeRepository($databaseManager);
         $this->message = "";
     }
 
-    public function render(array $get, array $post)
+    public function render() {
+
+        require "View/create_challenge.php";
+
+        if (isset($_POST["addChallenge"])) {
+
+        }
+
+
+    }
+
+ /*   public function renderCreateView($get, $post)
+    {
+        require "View/create_challenge.php";
+
+       // header("location: View/create_challenge.php");
+    }*/
+
+  /*  public function render()
     {
         //this is just example code, you can remove the line below
 
-        $user = $this->login($post['email'], $post['password']);
+        $user = $this->login($_GET['email'], $_POST['password']);
 
         if ($user) {
             $_SESSION["logginUserId"] = $user->getId();
             $_SESSION["logginUserName"] = $user->getUsername();
-           // $_SESSION['user'] = serialize((array) $user);
+            // $_SESSION['user'] = serialize((array) $user);
         }
 
         //you should not echo anything inside your controller - only assign vars here
@@ -44,33 +61,29 @@ class UserController {
         //load the view
         $this->renderByUserRole($user);
         exit();
-    }
+    }*/
 
     public function login($username, $password)
     {
-       return $this->userRepository->find($username,$password);
+        return $this->userRepository->find($username,$password);
     }
 
     public function renderByUserRole($user)
     {
         if ($user)
         {
-             switch ($user->getRoleId()) {
+            switch ($user->getRoleId()) {
                 case 1:
-                    require "View/coach_profile.php";
-
-                 // header("location: View/coach_profile.php");
+                    require_once "./View/coach_profile.php";
 
                     break;
                 case 2:
-                  require "View/student_profile.php";
-                  //  header("location: View/student_profile.php");
-                   break;
+                    require_once "./View/student_profile.php";
+                    break;
             }
             $this->sucessMessage();
         } else {
-          require_once "./View/public_homepage.php";
-          //  header("location: View/public_homepage.php");
+            require_once "./View/public_homepage.php";
             $this->errorMessage();
         }
     }

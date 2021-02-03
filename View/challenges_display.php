@@ -1,6 +1,6 @@
 <?php 
 //This is for the displaying of the previous/exisiting challenges
-require 'includes/header.php';
+require 'includes/header_watch.php';
 
 //TODO: need to set the path with $variable to choose student/coach header.php
 require 'includes/nav_student.php';
@@ -16,6 +16,6 @@ require 'includes/nav_student.php';
 
 
 <?php 
-require 'includes/footer.php';
+require_once 'includes/footer.php';
 
 ?>
