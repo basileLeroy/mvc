@@ -27,14 +27,11 @@ require_once 'Modal/business/Challenge.php';
 
     //files for Registering
 
-
 // // files for the user profiles
-// require_once 'Controller/WatchController.php';
-// require_once 'Modal/repository/CoacherRepository.php';
+require_once 'Modal/repository/CoacherRepository.php';
+require_once 'Controller/BaseController.php';
 
-// require_once 'Controller/LoginController.php';
 
-// require_once 'Modal/DatabaseManager.php';
 
 $email = $password = "";
 $email_err = $password_err = "";

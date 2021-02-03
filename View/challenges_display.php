@@ -2,8 +2,19 @@
 //This is for the displaying of the previous/exisiting challenges
 require 'includes/header_watch.php';
 
-//TODO: need to set the path with $variable to choose student/coach header.php
-require 'includes/nav_student.php';
+var_dump($_SESSION);
+
+require 'includes/header_watch.php';
+
+
+if($_SESSION["user_role"] == 2){
+   
+    require 'includes/nav_student.php';
+
+} else if ($_SESSION["user_role"] == 1){
+
+    require 'includes/nav_coach.php';
+}
 
 ?>
 <div class="container-profile">
