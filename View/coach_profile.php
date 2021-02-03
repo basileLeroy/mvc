@@ -27,7 +27,7 @@ include_once 'handles/userHandle.php';
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam, sint!</p>
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam, sint!</p>
             <a href="">More info<i class="fas fa-plus"></i></a>
-            <button type="submit"><a href="create_challenge.php">Create New Challenge</a></button>
+            <button type="submit"><a href="index.php?page=create-challenge">Create New Challenge</a></button>
 
         </div>
 

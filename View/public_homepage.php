@@ -22,7 +22,7 @@
         <br><br><br>
         <hr>
 
-        <button type="submit" name="login" value="login" id="login">Log in</button>
+        <button type="submit" name="login" value="login" id="login"><a href="index.php?page=login">Log in</a></button>
         <br><br>
 
         <button name="registerNow"><a href="index.php?page=register">Register new account!</a></button>

@@ -3,7 +3,7 @@ declare(strict_types = 1);
 require_once './Modal/repository/RegisterRepository.php';
 
 
-class RegisterController
+class HomeController
 {
     private $databaseManager;
 
@@ -15,13 +15,7 @@ class RegisterController
 
     public function render(array $get, array $post)
     {
-        
-        $error = null;
-        if (isset($_POST)) {
-            
-            $error = register($this->databaseManager);
-            errorMessage($error);
-        }
-        require "View/register_profile.php";
+        // stuff
+        require 'View/public_homepage.php';
     }
 }

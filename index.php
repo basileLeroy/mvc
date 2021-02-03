@@ -4,6 +4,7 @@ declare(strict_types = 1);
 require_once 'setup.php';
 
 // files for log in
+require_once 'Controller/HomeController.php';
 require_once 'Controller/UserController.php';
 require_once 'Controller/BaseController.php';
 require_once 'Controller/CoachController.php';
@@ -12,7 +13,6 @@ require_once 'Modal/repository/UserRepository.php';
 require_once 'Modal/business/User.php';
 require_once 'Modal/business/Coacher.php';
 require_once 'Modal/repository/RegisterRepository.php';
-
 
     //files for Registering
 
@@ -33,7 +33,8 @@ $databaseManager->connect();
 $result = null;
 
 if (empty($_GET)) {
-    require 'View/public_homepage.php';
+    $homepageController = new HomeController($databaseManager);
+    $homepageController->render($_GET, $_POST);
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -51,10 +52,4 @@ if (isset($_GET['page']) && $_GET['page'] = 'register'){
     
     $controller = new RegisterController($databaseManager);
     $controller->render($_GET, $_POST);
-
 }
-
-// if ( if the submit is true)
-//TODO: if the login = true -> check for table name
-//TODO: if table = student {$profile = "student_profile"} else if table is coach {$profile = "coach_profile"} else {$profile = "public_homepage"}
-
