@@ -1,14 +1,39 @@
 <?php 
-
+require '../setup.php';
+require '../Controller/BaseController.php';
 require 'includes/header_watch.php';
-require 'includes/nav_student.php';
+
+echo "<b>SESSION</b>";
+var_dump($_SESSION);
+echo "<br>";
+
+$databaseManager->connect();
+$user = new BaseController($databaseManager);
+
+$id=$_SESSION["logginUserId"];
+
+$userRole=$user->getUserRole($id);
+$_SESSION["user_role"] = $userRole;
+if($_SESSION["user_role"] == 2){
+   
+    require 'includes/nav_student.php';
+
+} else if ($_SESSION["user_role"] == 1){
+
+    require 'includes/nav_coach.php';
+}
+
+$reminder=$user->watchReminder($id);
+$classNumber=$user->getClassNumber($id);
+$classmates = $user->getClassmates($classNumber);
+
 ?>
 
 <div class="container-profile">
     <div class="grid-profile">
         <div class="welcome-msg">
             <h3>Welcome,
-                <span class="welcome-name"><?php echo $_GET["user"]; ?>!</span><br>
+                <span class="welcome-name"><?php echo $_SESSION["logginUserName"]; ?>!</span><br>
                 How are you doing today?
             </h3>
         </div>
@@ -31,11 +56,9 @@ require 'includes/nav_student.php';
         </div>
 
         <div class="repo">
-            <?php //TODO: replace the dummy text for the repository link?>
-            <h3>Your Next Work</h3>
-            <form action="">
-            <button type="submit" name="emailReminder">Email Reminder</button>
-            </form>
+            <h3>Your Next Watch</h3>
+            <p><?php echo $reminder["date"];?></p>
+            <a href = "mailto:<?php echo $reminder["email"]; ?>">Want an email reminder 3 days before?</a>
         </div>
 
         <div class="student-list">
@@ -47,9 +70,18 @@ require 'includes/nav_student.php';
             <div id="class-modal" class="modal">
                 <span onclick="document.getElementById('class-modal').style.display='none'" class="close"
                     title="Close Modal">&times;</span>
-
-                    <!-- TODO: to display student list of the class -->
-
+                <table>
+                   
+                <tr>
+                <?php 
+                foreach($classmates as $classmate){?>
+            
+            <td><?php echo($classmate["first_name"]);?> </td>
+        <?php }?>
+       
+        </tr>
+                   </td></table>
+                    
                 
 
             </div>
@@ -85,7 +117,7 @@ window.addEventListener('DOMContentLoaded', () => {
         //selectHelper:true,
 
         //cannot use PHP tag inside javascript codes, can only use a file return the values
-        events: 'Controller/WatchController.php',
+        events: '../Controller/WatchController.php',
         displayEventTime: false,
         eventColor: '#d889a7',
         eventTextColor: 'white',
