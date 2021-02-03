@@ -26,12 +26,8 @@
         <br><br>
 
         <!-- TODO: Pull the GET error value -->
-        <button name="registerNow"><a href="?page=register&error=<?=$_GET['error']?>">Register new account!</a></button>
+        <button name="registerNow"><a href="index.php?page=register">Register new account!</a></button>
     </form>
-
-
-
-
 
 </body>
 </html>

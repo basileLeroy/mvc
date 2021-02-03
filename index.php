@@ -14,10 +14,6 @@ require_once 'Modal/business/Coacher.php';
 
 
     //files for Registering
-require_once 'View/register_profile.php';
-
-require_once 'Controller/RegisterController.php';
-require_once 'Modal/repository/RegisterRepository.php';
 
 
 // // files for the user profiles
@@ -35,6 +31,9 @@ $databaseManager->connect();
 
 $result = null;
 
+if (empty($_GET)) {
+    require 'View/public_homepage.php';
+}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -45,6 +44,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 if (isset($_GET['page']) && $_GET['page'] = 'register'){
+    require_once 'Controller/RegisterController.php';
+    require_once 'Modal/repository/RegisterRepository.php';
     echo "TEST";
     
     $controller = new RegisterController($databaseManager);
@@ -55,4 +56,4 @@ if (isset($_GET['page']) && $_GET['page'] = 'register'){
 // if ( if the submit is true)
 //TODO: if the login = true -> check for table name
 //TODO: if table = student {$profile = "student_profile"} else if table is coach {$profile = "coach_profile"} else {$profile = "public_homepage"}
-require 'View/public_homepage.php';
+

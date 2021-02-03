@@ -6,7 +6,8 @@ function register($databaseManager)
     echo "<pre>";
     var_dump($_GET);
     echo "</pre>";
-    
+    //TODO: Change GET var into a seperate var
+    $_GET['error'] = null;
     $userName = $_POST["userName"];
     $email=$_POST["email"];
     $password=$_POST["password"];
@@ -16,33 +17,32 @@ function register($databaseManager)
     if (emptyRegisterInput($userName, $email, $password, $repeatPassword) !== false) {
         $_GET['error'] = "Empty-fields";
         return $_GET['error'];
-        exit();
     }
 
     if (invalidyUsername($userName) !== false) {
         $_GET['error'] = "Invalid-username";
-        exit();
+        return $_GET['error'];
     }
 
     if (invalidEmail($email) !== false) {
         $_GET['error'] = "Invalid-email";
-        exit();
+        return $_GET['error'];
     }
 
     if (passwordMatch($password, $repeatPassword) !== false) {
         $_GET['error'] = "No-matching-pwd";
-        exit();
+        return $_GET['error'];
     }
 
     if (userExists($databaseManager, $userName, $email) !== false) {
         $_GET['error'] = "Uid-already-exists";
-        exit();
+        return $_GET['error'];
     }
 
-    header("location: index.php?page={$_GET['page']}&error={$_GET['error']}");
+    // header("location: index.php?page={$_GET['page']}&error={$_GET['error']}");
 
     createUser($databaseManager, $userName, $email, $password, $userRole);
-    
+    return $_GET['error'];
 }
 
 function emptyRegisterInput($userName, $email, $password, $repeatPassword) 
@@ -97,7 +97,7 @@ function userExists($databaseManager, $userName, $email)
     $sqlStatement = $databaseManager->database->prepare($sql);
 
     if (!$sqlStatement) {
-        require 'index.php?error=Stmt-Failed';
+        require 'index.php?page=register';
         exit();
     }
 
@@ -126,7 +126,7 @@ function createUser($databaseManager, $userName, $email, $password, $userRole)
     $sqlStatement = $databaseManager->database->prepare($sql);
 
     if (!$sqlStatement) {
-        require 'index.php?error=Stmt-Failed';
+        require 'index.php?page=register';
         exit();
     }
 
@@ -147,8 +147,42 @@ function createUser($databaseManager, $userName, $email, $password, $userRole)
     var_dump($test);
     echo "</pre>";
 
-    require "student_profile.php?user={$userName}&error=none";
+    require "index.php?page=login";
     $sqlStatement = null;
     exit();
+}
+
+function errorMessage($error)
+{
+    if (isset($_GET["error"])) {
+        switch ($error) {
+
+            case 'Empty-fields':
+                //TODO: CLEAN This up jeez
+                $errorMessage = "FILL IN ALL FIELDS!";
+
+                break;
+
+            case 'Invalid-username':
+                $errorMessage ='<h3 style="color: red; font-size: 16px;">INVALID USERNAME!</h3>';
+
+                break;
+
+            case 'Invalid-email':
+                $errorMessage = '<h3 style="color: red; font-size: 16px;">INVALID EMAIL!</h3>';
+
+                break;
+
+            case 'No-matching-pwd':
+                $errorMessage ="PASSWORDS DON'T MATCH!";
+
+                break;
+
+            case 'Uid-already-exists':
+                $errorMessage = "ACCOUNT ALREADY EXISTS!";
+
+                break;
+        } return $errorMessage;
+    }
 }
 
