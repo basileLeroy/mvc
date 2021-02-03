@@ -27,13 +27,10 @@
 
         <button name="registerNow"><a href="index.php?page=register">Register new account!</a></button>
     </form>
-<<<<<<< HEAD
     <button type="submit" name="registerNow"><a href="View/register_profile.php">Register new account!</a></button>
 
 
 
-=======
->>>>>>> f6bed5e5e90ce523f3a32fb3b7191fdedd02cb29
 
 </body>
 </html>
