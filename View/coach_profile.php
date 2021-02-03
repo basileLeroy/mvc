@@ -29,7 +29,11 @@ include_once 'handles/userHandle.php';
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam, sint!</p>
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam, sint!</p>
             <a href="">More info<i class="fas fa-plus"></i></a>
+<<<<<<< HEAD
             <button type="submit" name="createChallenge"><a href="index.php?page=createChallenge">Create New Challenge</a></button>
+=======
+            <button type="submit"><a href="index.php?page=create-challenge">Create New Challenge</a></button>
+>>>>>>> 878dfa27ea30c4feb94e597b3c0a2fc851803a89
 
         </div>
 
