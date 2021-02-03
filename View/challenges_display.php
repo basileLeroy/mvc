@@ -1,6 +1,10 @@
 <?php 
 //This is for the displaying of the previous/exisiting challenges
+<<<<<<< HEAD
 session_start();
+=======
+require 'includes/header_watch.php';
+>>>>>>> a3beaea6d7ee993079d3f3862013a5fbe45f1334
 
 var_dump($_SESSION);
 
@@ -27,6 +31,6 @@ if($_SESSION["user_role"] == 2){
 
 
 <?php 
-require 'includes/footer.php';
+require_once 'includes/footer.php';
 
 ?>

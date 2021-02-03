@@ -126,5 +126,5 @@ window.addEventListener('DOMContentLoaded', () => {
 </script>
 
 <?php 
-require 'includes/footer.php';
+require_once 'includes/footer.php';
 ?>

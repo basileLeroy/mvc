@@ -30,6 +30,8 @@ $class1 = $user->getClassmates(1);
 $class2 = $user->getClassmates(2);
 
 
+
+
 ?>
 <div class="resize-container">
 
@@ -49,7 +51,7 @@ $class2 = $user->getClassmates(2);
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam, sint!</p>
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam, sint!</p>
             <a href="">More info<i class="fas fa-plus"></i></a>
-            <button type="submit"><a href="index.php?page=create-challenge">Create New Challenge</a></button>
+            <button type="submit" name="createChallenge"><a href="index.php?page=createChallenge">Create New Challenge</a></button>
 
         </div>
 
@@ -136,7 +138,11 @@ window.addEventListener('DOMContentLoaded', () => {
         contentHeight: 350,
         selectable: true,
         //selectHelper:true,
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> a3beaea6d7ee993079d3f3862013a5fbe45f1334
         //cannot use PHP tag inside javascript codes, can only use a file return the values
         events: '../Controller/WatchController.php',
         displayEventTime: false,
@@ -146,5 +152,5 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 <?php 
-require 'includes/footer.php';
+require_once 'includes/footer.php';
 ?>

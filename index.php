@@ -9,10 +9,17 @@ require_once 'Controller/UserController.php';
 require_once 'Controller/BaseController.php';
 require_once 'Controller/CoachController.php';
 require_once 'Controller/StudentController.php';
+require 'Controller/ChallengeController.php';
+require_once 'Controller/RegisterController.php';
+
 require_once 'Modal/repository/UserRepository.php';
+require_once 'Modal/repository/RegisterRepository.php';
+
 require_once 'Modal/business/User.php';
 require_once 'Modal/business/Coacher.php';
-require_once 'Modal/repository/RegisterRepository.php';
+require_once 'Modal/business/Challenge.php';
+
+
 
     //files for Registering
 
@@ -26,27 +33,33 @@ $email = $password = "";
 $email_err = $password_err = "";
 
 $databaseManager->connect();
+$controller = new BaseController($databaseManager);
 
 $result = null;
 
-if (empty($_GET)) {
+if (empty($_GET) || $_GET["page"] == "login") {
     $homepageController = new HomeController($databaseManager);
     $homepageController->render($_GET, $_POST);
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
     if (isset($_POST['login'])){
         $userController = new UserController($databaseManager);
         $userController->render($_GET, $_POST);
     }
 }
 
-if (isset($_GET['page']) && $_GET['page'] = 'register'){
+if (isset($_GET['page']) && $_GET['page'] == 'register'){
     require_once 'Controller/RegisterController.php';
     require_once 'Modal/repository/RegisterRepository.php';
     echo "TEST";
-    
+
     $controller = new RegisterController($databaseManager);
     $controller->render($_GET, $_POST);
+}
+
+if (isset($_GET["page"]) && $_GET["page"] === "createChallenge" ) {
+    $challengeController = new ChallengeController($databaseManager);
+    // $challengeController->renderCreateView($_GET, $_POST);
+    $challengeController->render($_GET, $_POST);
 }

@@ -3,7 +3,7 @@
 session_start();
 var_dump($_SESSION);
 
-require 'includes/header_watch.php';
+require_once 'includes/header_watch.php';
 
 
 if($_SESSION["user_role"] == 2){
@@ -53,5 +53,5 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 <?php 
-require 'includes/footer.php'
+require_once 'includes/footer.php'
 ?>

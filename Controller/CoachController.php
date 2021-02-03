@@ -1,5 +1,4 @@
 <?php
-require_once 'Controller/CoachController.php';
 
 class CoachController
 {
@@ -11,4 +10,6 @@ class CoachController
 
 
     //TODO: create new challenge "createChallenge()"
+
+
 }
