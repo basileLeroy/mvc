@@ -3,6 +3,8 @@ declare(strict_types = 1);
 
 require_once 'setup.php';
 
+require_once 'View/public_homepage.php';
+
 // files for log in
 require_once 'Controller/HomeController.php';
 require_once 'Controller/UserController.php';
@@ -18,6 +20,8 @@ require_once 'Modal/repository/RegisterRepository.php';
 require_once 'Modal/business/User.php';
 require_once 'Modal/business/Coacher.php';
 require_once 'Modal/business/Challenge.php';
+
+
 
 
 
@@ -39,11 +43,6 @@ $databaseManager->connect();
 $controller = new BaseController($databaseManager);
 
 $result = null;
-
-if (empty($_GET) || $_GET["page"] == "login") {
-    $homepageController = new HomeController($databaseManager);
-    $homepageController->render($_GET, $_POST);
-}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['login'])){
