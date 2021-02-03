@@ -5,9 +5,9 @@ require '../setup.php';
 require '../Controller/BaseController.php';
 require 'includes/header_watch.php';
 
-// echo "<b>SESSION</b>";
-// var_dump($_SESSION);
-// echo "<br>";
+echo "<b>SESSION</b>";
+var_dump($_SESSION);
+echo "<br>";
 
 $databaseManager->connect();
 $user = new BaseController($databaseManager);
@@ -37,7 +37,7 @@ $class2 = $user->getClassmates(2);
 <div class="container-profile">
     <div class="grid-profile">
         <div class="welcome-msg">
-        <h3>Welcome,
+            <h3>Welcome,
                 <span class="welcome-name"><?php echo $_SESSION["logginUserName"]; ?>!</span><br>
                 How are you doing today?
             </h3>
@@ -56,11 +56,11 @@ $class2 = $user->getClassmates(2);
         <div class="watch">
             <?php //TODO: replace the dummy text for the calendar?>
             <div class="container">
-            <h3>Watch Schedule</h3>
-            <div id="calendar"></div>
+                <h3>Watch Schedule</h3>
+                <div id="calendar"></div>
 
             </div>
-            
+
         </div>
 
         <div class="repo">
@@ -69,7 +69,7 @@ $class2 = $user->getClassmates(2);
             <p><?php echo $nextWatch["date"];
 
 ?> by <?php echo $nextWatch["first_name"];?> </p>
-<H4> <?php echo $nextWatch["name"]?></H4>
+            <H4> <?php echo $nextWatch["name"]?></H4>
 
         </div>
 
@@ -83,29 +83,31 @@ $class2 = $user->getClassmates(2);
                 <span onclick="document.getElementById('class-modal').style.display='none'" class="close"
                     title="Close Modal">&times;</span>
                 <table>
-                   <thead>Vervou</thead>
-                <tr>
-                <?php 
+                    <thead>Vervou</thead>
+                    <tr>
+                        <?php 
                 foreach($class1 as $classmate){?>
-            
-            <td><?php echo($classmate["first_name"]);?> </td>
-        <?php }?>
-       
-        </tr>
-                   </td></table>
-                   <table>
-                   <thead>KooKu</thead>
-                <tr>
-                <?php 
+
+                        <td><?php echo($classmate["first_name"]);?> </td>
+                        <?php }?>
+
+                    </tr>
+                    </td>
+                </table>
+                <table>
+                    <thead>KooKu</thead>
+                    <tr>
+                        <?php 
                 foreach($class2 as $classmate2){?>
-            
-            <td><?php echo($classmate2["first_name"]);?> </td>
-        <?php }?>
-       
-        </tr>
-                   </td></table>
-                    
-                
+
+                        <td><?php echo($classmate2["first_name"]);?> </td>
+                        <?php }?>
+
+                    </tr>
+                    </td>
+                </table>
+
+
 
             </div>
 
@@ -128,13 +130,13 @@ window.addEventListener('DOMContentLoaded', () => {
 
     var calendar = $('#calendar').fullCalendar({
 
-               //fixedWeekCount: false,
+        //fixedWeekCount: false,
         editable: false,
         // height: 400 ,
         contentHeight: 350,
-        selectable:true,
+        selectable: true,
         //selectHelper:true,
-       
+
         //cannot use PHP tag inside javascript codes, can only use a file return the values
         events: '../Controller/WatchController.php',
         displayEventTime: false,

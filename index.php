@@ -21,12 +21,10 @@ require_once 'Modal/repository/RegisterRepository.php';
 
 }
 
-
 // // files for the user profiles
 require_once 'Modal/repository/CoacherRepository.php';
 require_once 'Controller/BaseController.php';
 
-//require 'Controller/WatchController.php';
 
 
 $email = $password = "";
@@ -53,9 +51,4 @@ if (isset($_GET['page']) && $_GET['page'] === 'register'){
     
 }
 
-
-
-// if ( if the submit is true)
-//TODO: if the login = true -> check for table name
-//TODO: if table = student {$profile = "student_profile"} else if table is coach {$profile = "coach_profile"} else {$profile = "public_homepage"}
 require 'View/public_homepage.php';

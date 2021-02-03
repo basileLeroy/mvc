@@ -170,84 +170,56 @@ div#calendar{
 
 
 
-/* Set a style for all buttons */
+// class lidt modal
 .modal-btn {
   background-color: #4CAF50;
   color: white;
-  padding: 14px 20px;
+  padding: 1rem 1.5rem;
   margin: 8px 0;
   border: none;
   cursor: pointer;
-  width: 100%;
+  width: 50%;
+  .modal-btn:hover {
+    opacity: 0.8;
+  }
+  
 }
 
-.modal-btn:hover {
-  opacity: 0.8;
-}
-
-
-
-.container-modal {
-  padding: 16px;
-}
-
-span.psw {
-  float: right;
-  padding-top: 16px;
-}
-
-/* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
+  left: 20vw;
+  top: 25vh;
+  width: 40rem; /* Full width */
+  height: 20rem; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-background-color: $tiffany;
-  padding-top: 60px;
+background-color: #cdcdcc;
+border: 15px solid $turquoise;
+border-radius: 12px;
+animation: animatezoom .2s ease-in-out;
+
 }
 
-
-
-/* The Close Button (x) */
 .close {
   position: absolute;
   right: 25px;
-  top: 0;
-  color: #000;
-  font-size: 35px;
+  top: 25px;
+  color: white;
+  font-size: 40px;
   font-weight: bold;
 }
 
 .close:hover,
 .close:focus {
-  color: red;
+  color: $dark-grey;
   cursor: pointer;
 }
-
-/* Add Zoom Animation */
-.animate {
-  -webkit-animation: animatezoom 0.6s;
-  animation: animatezoom 0.6s
-}
-
-
+table{
   
-@keyframes animatezoom {
-  from {transform: scale(0)} 
-  to {transform: scale(1)}
 }
 
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-  span.psw {
-     display: block;
-     float: none;
-  }
-  .cancelbtn {
-     width: 100%;
-  }
+@keyframes animatezoom {
+  from {opacity:0;} 
+  to {opacity: 1;}
 }
