@@ -32,7 +32,7 @@ $databaseManager->connect();
 
 $result = null;
 
-if (empty($_GET)) {
+if (empty($_GET) || $_GET["page"] == "login") {
     $homepageController = new HomeController($databaseManager);
     $homepageController->render($_GET, $_POST);
 }
@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-if (isset($_GET['page']) && $_GET['page'] = 'register'){
+if (isset($_GET['page']) && $_GET['page'] == 'register'){
     require_once 'Controller/RegisterController.php';
     require_once 'Modal/repository/RegisterRepository.php';
     echo "TEST";
