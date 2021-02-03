@@ -4,7 +4,7 @@ declare(strict_types = 1);
 //create this controller to with the return of data array for the input in javascript
 
 
-require '../setup.php';
+require_once '../setup.php';
 
 
     $databaseManager->connect();

@@ -1,10 +1,10 @@
 <!-- //This is for  displaying the watch calendar -->
 <?php 
 
-require 'includes/header_watch.php';
+require_once 'includes/header_watch.php';
 
 //TODO: need to set $variable to choose between student/coach_header.php
-require 'includes/nav_coach.php';
+require_once 'includes/nav_coach.php';
 ?>
 <div class="container-profile">
 
@@ -40,5 +40,5 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 <?php 
-require 'includes/footer.php'
+require_once 'includes/footer.php'
 ?>

@@ -1,7 +1,7 @@
 <?php 
 
-require 'includes/header_watch.php';
-require 'includes/nav_student.php';
+require_once 'includes/header_watch.php';
+require_once 'includes/nav_student.php';
 ?>
 
 <div class="container-profile">
@@ -92,5 +92,5 @@ window.addEventListener('DOMContentLoaded', () => {
 </script>
 
 <?php 
-require 'includes/footer.php';
+require_once 'includes/footer.php';
 ?>

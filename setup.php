@@ -12,8 +12,8 @@ error_reporting(E_ALL);
 session_start();
 
 // Load you classes
-require_once 'config.php';
-require_once 'Modal/DatabaseManager.php';
+require 'config.php';
+require 'Modal/DatabaseManager.php';
 
 $databaseManager = new DatabaseManager($config['host'], $config['user'], $config['password'], $config['databaseName']);
 

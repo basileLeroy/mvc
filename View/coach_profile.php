@@ -1,9 +1,11 @@
-<?php 
+<?php
+//require '../setup.php';
 require 'includes/header_watch.php';
-
 require 'includes/nav_coach.php';
 
 include_once 'handles/userHandle.php';
+
+
 
 ?>
 <div class="resize-container">
@@ -27,7 +29,7 @@ include_once 'handles/userHandle.php';
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam, sint!</p>
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam, sint!</p>
             <a href="">More info<i class="fas fa-plus"></i></a>
-            <button type="submit"><a href="create_challenge.php">Create New Challenge</a></button>
+            <button type="submit" name="createChallenge"><a href="index.php?page=createChallenge">Create New Challenge</a></button>
 
         </div>
 
@@ -77,5 +79,5 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 <?php 
-require 'includes/footer.php';
+require_once 'includes/footer.php';
 ?>
