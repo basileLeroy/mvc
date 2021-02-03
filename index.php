@@ -11,6 +11,7 @@ require_once 'Controller/StudentController.php';
 require_once 'Modal/repository/UserRepository.php';
 require_once 'Modal/business/User.php';
 require_once 'Modal/business/Coacher.php';
+require_once 'Modal/repository/RegisterRepository.php';
 
 
     //files for Registering

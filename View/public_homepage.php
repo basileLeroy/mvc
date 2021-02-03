@@ -25,7 +25,6 @@
         <button type="submit" name="login" value="login" id="login">Log in</button>
         <br><br>
 
-        <!-- TODO: Pull the GET error value -->
         <button name="registerNow"><a href="index.php?page=register">Register new account!</a></button>
     </form>
 
