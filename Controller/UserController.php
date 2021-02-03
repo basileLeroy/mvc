@@ -58,23 +58,15 @@ class UserController {
         {
              switch ($user->getRoleId()) {
                 case 1:
-<<<<<<< HEAD
-                    header("location: ./View/coach_profile.php");
-=======
                     require "View/coach_profile.php";
 
                  // header("location: View/coach_profile.php");
->>>>>>> a3beaea6d7ee993079d3f3862013a5fbe45f1334
 
                     break;
 
                 case 2:
-<<<<<<< HEAD
-                    header("location: ./View/student_profile.php");
-=======
                   require "View/student_profile.php";
                   //  header("location: View/student_profile.php");
->>>>>>> a3beaea6d7ee993079d3f3862013a5fbe45f1334
                    break;
             }
             $this->sucessMessage();

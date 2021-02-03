@@ -7,10 +7,7 @@ require '../setup.php';
 require 'BaseController.php';
 
 
-<<<<<<< HEAD
-=======
 require_once '../setup.php';
->>>>>>> a3beaea6d7ee993079d3f3862013a5fbe45f1334
 
 
 $databaseManager->connect();

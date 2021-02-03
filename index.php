@@ -37,11 +37,6 @@ $controller = new BaseController($databaseManager);
 
 $result = null;
 
-if (empty($_GET) || $_GET["page"] == "login") {
-    $homepageController = new HomeController($databaseManager);
-    $homepageController->render($_GET, $_POST);
-}
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['login'])){
         $userController = new UserController($databaseManager);

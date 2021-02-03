@@ -13,11 +13,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
-<<<<<<< HEAD
     <link rel="stylesheet" href="../style/style.css">
-=======
-    <link rel="stylesheet" href="./style/style.css">
->>>>>>> a3beaea6d7ee993079d3f3862013a5fbe45f1334
     <title>Becode2U</title>
 
     

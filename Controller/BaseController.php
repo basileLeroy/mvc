@@ -7,13 +7,10 @@ class BaseController
     {
         $this->databaseManager = $databaseManager;
     }
-<<<<<<< HEAD
-=======
 
     public function render() {
     }
 
->>>>>>> a3beaea6d7ee993079d3f3862013a5fbe45f1334
     //TODO: select admin role
     //TODO: update database as administrator
 
